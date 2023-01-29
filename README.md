@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with Maksumoff
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is available on GitHub [House-renting](https://github.com/Maksumoff/House-renting.git).
+
+# can see the Demo [House-renting](https://netlify.com/Maksumoff/House-renting.git).
 
 ## Available Scripts
 
