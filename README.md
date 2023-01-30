@@ -1,8 +1,8 @@
 # Getting Started with Maksumoff
 
-This project is available on GitHub [House-renting](https://github.com/Maksumoff/House-renting.git).
+This project is available on GitHub [House-renting](https://renting-house.netlify.app/).
 
-# can see the Demo [House-renting](https://netlify.com/Maksumoff/House-renting.git).
+# can see the Demo [House-renting](https://renting-house.netlify.app/).
 
 ## Available Scripts
 
