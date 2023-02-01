@@ -18,13 +18,13 @@ const getType = ({ type }) => {
       return {
         background: "#0061DF",
         color: "#ffffff",
-        border: "none",
+        border: "1px solid #0061DF",
       };
     default:
       return {
         background: "#0061DF",
         color: "#ffffff",
-        border: "none",
+        border: "1px solid #0061DF",
       };
   }
 };
