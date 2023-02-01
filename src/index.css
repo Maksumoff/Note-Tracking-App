@@ -5,6 +5,7 @@ body {
 }
 
 * {
+  font-family: "Montserrat", sans-serif;
   margin: 0px;
   padding: 0px;
 }
@@ -19,4 +20,25 @@ body {
 
   /* padding */
   --padding: 0 130px;
+}
+
+.title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  color: #0d263b;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.subTitle {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0d263b;
+  line-height: 24px;
+  padding-bottom: 10px;
 }
