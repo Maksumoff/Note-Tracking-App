@@ -58,7 +58,7 @@ const fontSize = css`
 
 Content.Title = styled.h1`
   ${fontSize};
-  margin-bottom: 8px;
+  padding-bottom: 8px;
   font-weight: ${({ price }) => (price ? "600" : "700")};
   font-size: ${({ price }) => (price ? "28px" : "44px")};
   line-height: ${({ price }) => (price ? "36px" : "48px")};
