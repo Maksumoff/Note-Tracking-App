@@ -5,5 +5,19 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+const WrapperMain = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-export { Container };
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--padding);
+  gap: 20px;
+  width: 100%;
+  max-width: 1440px;
+`;
+
+export { Container, Wrapper, WrapperMain };
