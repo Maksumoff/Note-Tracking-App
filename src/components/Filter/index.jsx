@@ -24,7 +24,7 @@ export const Filter = () => {
   const maxRef = useRef();
 
   const onChange = ({ target: { name, value } }) => {
-    console.log(name, value);
+    // console.log(name, value);
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };
 
