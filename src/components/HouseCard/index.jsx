@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Container,
   Footer,
@@ -10,34 +9,55 @@ import {
   Wrapper,
 } from "./styled";
 import noimg from "../../assets/imgs/noimg.png";
-export const HouseCard = ({ url, title, info, bed, bath, garage, metric }) => {
+
+export const HouseCard = ({ data = {} }) => {
+  const {
+    name,
+    address,
+    description,
+    houseDetails,
+    region,
+    city,
+    country,
+    salePrice,
+    price,
+    attachments,
+  } = data;
+
   return (
     <MainWrapper>
       <Container>
-        <Img src={url || noimg} />
+        <Img src={(attachments && attachments[0]?.imgPath) || noimg} />
         <Wrapper>
-          <div className="subTitle">{title || "New Apartment Nice View"}</div>
-          <Info>{info || "Quncy St. Brooklyn, NY, USA"}</Info>
+          <div className="subTitle inline">
+            {name} {description}
+          </div>
+          <Info>
+            {address}, {region}, {city}, {country}
+          </Info>
           <IconsWrapper>
             <IconsWrapper.Info>
-              <Icons.Bed /> <div className="info">Beds {bed || 0}</div>
+              <Icons.Bed />{" "}
+              <div className="info">Beds {houseDetails?.beds || 0}</div>
             </IconsWrapper.Info>
             <IconsWrapper.Info>
-              <Icons.Bath /> <div className="info">Baths {bath || 0}</div>
+              <Icons.Bath />{" "}
+              <div className="info">Baths {houseDetails?.bath || 0}</div>
             </IconsWrapper.Info>
             <IconsWrapper.Info>
-              <Icons.Garage /> <div className="info">Garage {garage || 0}</div>
+              <Icons.Garage />{" "}
+              <div className="info">Garage {houseDetails?.garage || 0}</div>
             </IconsWrapper.Info>
             <IconsWrapper.Info>
               <Icons.Metrics />
-              <div className="info">Sq Ft {metric || 0}</div>
+              <div className="info">Sq Ft {houseDetails?.area || 0}</div>
             </IconsWrapper.Info>
           </IconsWrapper>
         </Wrapper>
         <Footer>
           <IconsWrapper footer="true">
-            <Info nopadding="true">$2,800/month</Info>
-            <div className="subTitle">$7,500/month</div>
+            <Info nopadding="true">${salePrice || 0}/month</Info>
+            <div className="subTitle">${price || 0}/month</div>
           </IconsWrapper>
           <IconsWrapper>
             <Icons.Expand />

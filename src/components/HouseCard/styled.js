@@ -23,6 +23,7 @@ const Container = styled.div`
 const Img = styled.img`
   width: 100%;
   max-height: 218px;
+  min-height: 218px;
 `;
 
 const Wrapper = styled.div`
