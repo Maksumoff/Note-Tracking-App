@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as arrow } from "../../assets/icons/arrow.svg";
+import { ReactComponent as arrow } from "../../assets/icons/arrow1.svg";
 
 const Container = styled.div`
   position: relative;
@@ -14,11 +14,9 @@ const Arrow = styled(arrow)`
   padding: 17px 19px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  color: white;
   transform: ${({ right }) => right && "rotate(180deg)"};
   left: ${({ right }) => !right && "32px"};
   right: ${({ right }) => right && "32px"};
-
   cursor: pointer;
   :hover {
     background: rgba(255, 255, 255, 0.4);

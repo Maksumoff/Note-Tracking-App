@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 const Wrapper = styled.div`
   display: grid;
   grid-auto-flow: row;
@@ -14,6 +9,9 @@ const Wrapper = styled.div`
   width: 100%;
   margin: auto;
   padding: var(--padding);
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  margin: auto;
 `;
 
-export { Container, Wrapper };
+export { Wrapper };
