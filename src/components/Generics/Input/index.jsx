@@ -20,6 +20,8 @@ export const Input = forwardRef(
       <Wrapper>
         <Icon>{icon}</Icon>
         <Container
+          padding="true"
+          className="inline"
           ref={ref}
           icon={icon}
           type={type}

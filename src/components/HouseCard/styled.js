@@ -6,15 +6,11 @@ import { ReactComponent as bed } from "../../assets/icons/bed.svg";
 import { ReactComponent as expand } from "../../assets/icons/expand.svg";
 import { ReactComponent as love } from "../../assets/icons/love.svg";
 
-const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 100px; // for instance;
-  max-width: 1440px;
-  gap: 20px;
-`;
 const Container = styled.div`
-  width: 380px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 380px;
+  min-width: 330px;
   height: 429px;
   border: 1px solid #e6e9ec;
   border-radius: 3px;
@@ -27,7 +23,7 @@ const Img = styled.img`
 `;
 
 const Wrapper = styled.div`
-  border-top: 1px solid #c8c8c8;
+  /* border-top: 1px solid #c8c8c8; */
   padding: 22px 20px 0px;
   background: white;
 `;
@@ -80,13 +76,18 @@ Icons.Metrics = styled(metrics)`
   ${cmn};
 `;
 Icons.Expand = styled(expand)`
+  position: relative;
+  top: 5px;
   margin-right: 10px;
   padding: 10px 10px;
   cursor: pointer;
 `;
+
 Icons.Love = styled(love)`
+  position: relative;
+  top: 5px;
   padding: 11px 10px;
-  margin-right: 10px;
+  /* margin: auto; */
   cursor: pointer;
   :active {
     transform: scale(0.9);
@@ -103,16 +104,7 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #e6e9ec;
-  padding: 8px 0px 4px 20px;
+  padding: 8px 20px 4px;
 `;
 
-export {
-  MainWrapper,
-  Container,
-  Img,
-  Wrapper,
-  IconsWrapper,
-  Icons,
-  Footer,
-  Info,
-};
+export { Container, Img, Wrapper, IconsWrapper, Icons, Footer, Info };

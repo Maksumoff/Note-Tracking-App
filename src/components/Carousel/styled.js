@@ -14,9 +14,11 @@ const Arrow = styled(arrow)`
   padding: 17px 19px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+  color: white;
   transform: ${({ right }) => right && "rotate(180deg)"};
   left: ${({ right }) => !right && "32px"};
   right: ${({ right }) => right && "32px"};
+
   cursor: pointer;
   :hover {
     background: rgba(255, 255, 255, 0.4);
@@ -58,11 +60,7 @@ const fontSize = css`
 
 Content.Title = styled.h1`
   ${fontSize};
-<<<<<<< HEAD
   padding-bottom: 8px;
-=======
-  margin-bottom: 8px;
->>>>>>> a9301449b1f6220929f0878829b8487f01524b77
   font-weight: ${({ price }) => (price ? "600" : "700")};
   font-size: ${({ price }) => (price ? "28px" : "44px")};
   line-height: ${({ price }) => (price ? "36px" : "48px")};

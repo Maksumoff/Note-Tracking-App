@@ -1,13 +1,18 @@
+import React, { Fragment, Suspense } from "react";
 import useId from "../hooks/useId";
-import HomePage from "../pages/Home";
-import PropertiesPage from "../pages/Properties";
+const PropertiesPage = React.lazy(() => import("../pages/Properties"));
+const HomePage = React.lazy(() => import("../pages/Home"));
 
 export const navbar = [
   {
     id: useId,
     title: "Home",
     path: "/home",
-    element: <HomePage />,
+    element: (
+      <Suspense fallback={<Fragment>Loading...</Fragment>}>
+        <HomePage />
+      </Suspense>
+    ),
     private: false,
     hidden: false,
   },
@@ -15,7 +20,11 @@ export const navbar = [
     id: useId,
     title: "Properties",
     path: "/properties",
-    element: <PropertiesPage />,
+    element: (
+      <Suspense fallback={<Fragment>Loading...</Fragment>}>
+        <PropertiesPage />
+      </Suspense>
+    ),
     private: false,
     hidden: false,
   },

@@ -5,24 +5,30 @@ import { ReactComponent as search } from "../../assets/icons/search.svg";
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: var(--padding);
   padding-top: 12px;
   padding-bottom: 12px;
   gap: 20px;
   width: 100%;
   max-width: 1440px;
+  /* margin: auto; */
 `;
-
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const Icons = styled.div``;
 
 Icons.House = styled(house)`
   margin-right: 8px;
 `;
+const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 Icons.Filter = styled(filter)`
   margin-right: 8px;
 `;
@@ -41,4 +47,4 @@ const Section = styled.div`
   gap: 20px;
 `;
 
-export { Container, Icons, MenuWrapper, Section, Wrapper };
+export { IconsWrapper, Container, Icons, MenuWrapper, Section, Wrapper };
