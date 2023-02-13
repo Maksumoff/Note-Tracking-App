@@ -42,12 +42,15 @@ const common = css`
 `;
 
 const Info = styled.div`
-  display: flex;
+  display: ${({ nopadding }) => (nopadding ? "flex" : "block")};
   justify-content: flex-start;
   ${common};
-  font-size: 12px;
+  font-size: ${({ nopadding }) => (nopadding ? "12px" : "14px")};
   padding-bottom: ${({ nopadding }) => (nopadding ? "0px" : "15px")};
   text-decoration-line: ${({ nopadding }) => nopadding && "line-through"};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 IconsWrapper.Info = styled.div`

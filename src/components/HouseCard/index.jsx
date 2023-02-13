@@ -21,6 +21,7 @@ export const HouseCard = ({ data = {} }) => {
     salePrice,
     price,
     attachments,
+    category,
   } = data;
 
   return (
@@ -31,7 +32,7 @@ export const HouseCard = ({ data = {} }) => {
           {name} {description}
         </div>
         <Info>
-          {address}, {region}, {city}, {country}
+          {address}, {region}, {city}, {country} - {category?.name}
         </Info>
         <IconsWrapper>
           <IconsWrapper.Info>

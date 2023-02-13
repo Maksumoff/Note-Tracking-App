@@ -2,13 +2,18 @@ import styled, { css } from "styled-components";
 import { ReactComponent as arrow } from "../../assets/icons/arrow1.svg";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   position: relative;
-  height: 571px;
+  padding: 96px 130px;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
 `;
 
 const Arrow = styled(arrow)`
   position: absolute;
-  top: 45%;
+  top: 25%;
   width: 8px;
   height: 12px;
   padding: 17px 19px;

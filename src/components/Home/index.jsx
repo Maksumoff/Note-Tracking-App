@@ -1,21 +1,22 @@
 import React from "react";
 import GenCarousel from "../Carousel";
-import HouseCard from "../HouseCard";
-import { Container, Wrapper, WrapperMain } from "./styled";
+import Category from "../Category";
+import { Container } from "./styled";
+// import CategoryCard from "../CategoryCard";
+// import HouseCard from "../HouseCard";
 
 export const Home = () => {
   return (
     <Container>
       <GenCarousel />
-      <WrapperMain>
-        <Wrapper>
-          <HouseCard />
-          <HouseCard />
-          <HouseCard />
-          <HouseCard />
-        </Wrapper>
-      </WrapperMain>
+      <Category />
+      {/* <HouseCard /> */}
     </Container>
   );
 };
 export default Home;
+
+// <WrapperMain>
+//   <Wrapper>
+//   </Wrapper>
+// </WrapperMain>
