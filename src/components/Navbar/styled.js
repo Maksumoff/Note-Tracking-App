@@ -17,7 +17,7 @@ const Main = styled.div`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center ;
   padding: var(--padding);
   color: #fff;
   height: 64px;

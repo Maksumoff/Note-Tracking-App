@@ -12,7 +12,7 @@ export const Root = () => {
             return <Route key={id} path={path} element={element} />;
           })}
         </Route>
-        <Route path="/" element={<Navigate to={"/home"} />} />
+        <Route path="/" element={<Navigate to={"/main"} />} />
         <Route path="*" element={<h1>404 Not Found </h1>} />
       </Routes>
     </BrowserRouter>
