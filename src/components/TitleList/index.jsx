@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Input, InputWrapper, Span } from "./styled";
+import { Container, InputWrapper, Span } from "./styled";
 
 export const Title = ({ todo, removeTodo, handleChange, enterEditMode }) => {
-  const handleCheckboxChange = () => {
-    if (todo.done) return null;
-    handleChange(todo.id);
-  };
+  // const handleCheckboxChange = () => {
+  //   if (todo.done) return null;
+  //   handleChange(todo.id);
+  // };
 
   return (
     <Container>

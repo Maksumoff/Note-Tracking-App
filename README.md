@@ -2,7 +2,7 @@
 
 This project is available on GitHub [House-renting](https://renting-house.netlify.app/).
 
-# can see the Demo [House-renting](https://renting-house.netlify.app/).
+# can see the Demo [House-renting](https://note-tracking-app.netlify.app/).
 
 ## Available Scripts
 
