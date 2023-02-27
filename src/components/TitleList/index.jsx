@@ -11,7 +11,7 @@ export const Title = ({ todo, removeTodo, handleChange, enterEditMode }) => {
     <Container>
       <InputWrapper>
         <Span edit onClick={() => enterEditMode(todo)}>
-          edit
+          edit title
         </Span>
       </InputWrapper>
     </Container>
