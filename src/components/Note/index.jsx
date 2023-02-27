@@ -1,5 +1,5 @@
 import React from "react";
-import { Todo } from "../TodoList";
+
 import { Wrapper } from "./styled";
 
 export const Note = () => {
