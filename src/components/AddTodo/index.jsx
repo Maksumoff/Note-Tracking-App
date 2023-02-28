@@ -34,7 +34,6 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
     // console.log(task.length);
   };
 
-  // console.log("controlled");
   return (
     <FormWrapper>
       {todos.length <= taskLimit ? (
@@ -91,10 +90,3 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
     </FormWrapper>
   );
 };
-
-// import React from "react";
-
-// export const Input = ({value, onChangeInput }) => (
-// <input type='text' value={value} onChange={onChangeInput} />
-//   )
-//   export default Input;

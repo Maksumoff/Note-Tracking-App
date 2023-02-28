@@ -1,15 +1,13 @@
 import React from "react";
-
-import { Wrapper } from "./styled";
+import NoteList from "../NoteList";
+import { Container } from "./styled";
 
 export const Note = () => {
   return (
-    <Wrapper>
-      <h1>note page</h1>
-      <h1>note page</h1>
-      <h1>note page</h1>
-      <h1>note page</h1>
-    </Wrapper>
+    <Container>
+      <h1>Note page</h1>
+      <NoteList />
+    </Container>
   );
 };
 

@@ -1,8 +1,16 @@
 import styled from "styled-components";
+import { HiOutlineTrash } from "react-icons/hi";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #696969;
+  margin: 5px;
+  padding: 20px;
 `;
+
+const FooterNote = styled.div``;
 
 // const Wrapper = styled.div`
 //   display: grid;
@@ -18,4 +26,9 @@ const Container = styled.div`
 //   margin: auto;
 // `;
 
-export { Container };
+const Icons = styled.div``;
+Icons.Trash = styled(HiOutlineTrash)`
+  color: red;
+`;
+
+export { Container, FooterNote, Icons };
