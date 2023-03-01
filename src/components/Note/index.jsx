@@ -14,6 +14,7 @@ export const Note = () => {
         { third: "third-todo" },
       ],
       date: Date.now(),
+      completed: true,
     },
     {
       id: nanoid(),
@@ -24,6 +25,7 @@ export const Note = () => {
         { third: "third-todo" },
       ],
       date: Date.now(),
+      completed: true,
     },
     {
       id: nanoid(),
@@ -34,6 +36,7 @@ export const Note = () => {
         { third: "third-todo" },
       ],
       date: Date.now(),
+      completed: true,
     },
     {
       id: nanoid(),
@@ -44,6 +47,7 @@ export const Note = () => {
         { third: "third-todo" },
       ],
       date: Date.now(),
+      completed: true,
     },
     {
       id: nanoid(),
@@ -54,13 +58,19 @@ export const Note = () => {
         { third: "third-todo" },
       ],
       date: Date.now(),
+      completed: false,
     },
   ]);
+
+  const AddNoteHandler = (note) => {
+    console.log(note);
+    setNotes((notes) => [...notes, note]);
+  };
 
   return (
     <Container>
       <h1>Note page</h1>
-      <NoteList notes={notes} />
+      <NoteList notes={notes} AddNoteHandler={AddNoteHandler} />
     </Container>
   );
 };

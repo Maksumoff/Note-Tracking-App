@@ -1,8 +1,9 @@
 import React from "react";
+import AddNote from "../AddNote";
 import Notes from "../Notes";
 import { Container, ListWrapper } from "./styled";
 
-export const NoteList = ({ notes }) => {
+export const NoteList = ({ notes, AddNoteHandler }) => {
   const { todos } = notes[0];
   const { first } = todos[0];
 
@@ -43,11 +44,7 @@ export const NoteList = ({ notes }) => {
         {notes.map((notes) => (
           <Notes key={notes.id} notes={notes} />
         ))}
-
-        {/* <Notes />
-        <Notes />
-        <Notes />
-        <Notes /> */}
+        <AddNote notes={notes} AddNoteHandler={AddNoteHandler} />
       </ListWrapper>
     </Container>
   );

@@ -72,3 +72,6 @@ body {
   border-radius: 50px;
   border: 5px solid #0d263b;
 }
+ul {
+  list-style: none;
+}

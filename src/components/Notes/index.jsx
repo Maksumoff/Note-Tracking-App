@@ -2,7 +2,7 @@ import React from "react";
 import { Container, FooterNote, Icons } from "./styled";
 
 export const Notes = ({ notes }) => {
-  const { title, date, todos } = notes;
+  const { title, date, todos, completed } = notes;
   const { first } = todos[0];
   const { second } = todos[1];
   const { third } = todos[2];
@@ -24,21 +24,21 @@ export const Notes = ({ notes }) => {
       <ul>
         <li>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" checked={completed} disabled />
             {todos[0].first} {""}
             {first}
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" checked={completed} disabled />
             {todos[1].second} {""}
             {second}
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" checked={completed} disabled />
             {todos[2].third} {""}
             {third}
           </label>
