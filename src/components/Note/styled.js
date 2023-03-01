@@ -2,20 +2,11 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  align-items: stretch;
+  margin: auto;
 `;
-
-// const Wrapper = styled.div`
-//   display: grid;
-//   grid-auto-flow: row;
-//   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-//   grid-gap: 20px;
-//   max-width: 1440px;
-//   width: 100%;
-//   margin: auto;
-//   padding: var(--padding);
-//   padding-bottom: 20px;
-//   box-sizing: border-box;
-//   margin: auto;
-// `;
 
 export { Container };

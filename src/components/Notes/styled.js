@@ -5,12 +5,28 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #696969;
-  margin: 5px;
-  padding: 20px;
+  color: #ffffff;
+  background: #0d263b;
+  padding: 12px;
+  min-height: 200px;
+  border-radius: 20px;
 `;
 
-const FooterNote = styled.div``;
+const FooterNote = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Icons = styled.div``;
+
+Icons.Trash = styled(HiOutlineTrash)`
+  color: #ffffff;
+  cursor: pointer;
+`;
+
+export { Container, FooterNote, Icons };
 
 // const Wrapper = styled.div`
 //   display: grid;
@@ -25,10 +41,3 @@ const FooterNote = styled.div``;
 //   box-sizing: border-box;
 //   margin: auto;
 // `;
-
-const Icons = styled.div``;
-Icons.Trash = styled(HiOutlineTrash)`
-  color: red;
-`;
-
-export { Container, FooterNote, Icons };

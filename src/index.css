@@ -57,5 +57,18 @@ body {
   /* display: flex; */
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  background: #0d263b;
+  width: 16px;
+}
+::-webkit-scrollbar-track-piece {
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b8ff06;
+  border-radius: 50px;
+  border: 5px solid #0d263b;
 }

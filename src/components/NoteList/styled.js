@@ -2,6 +2,15 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  padding: 10px;
+`;
+
+const ListWrapper = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  /* grid-template-columns: repeat(4, 250px); */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
 
 // const Wrapper = styled.div`
@@ -18,4 +27,4 @@ const Container = styled.div`
 //   margin: auto;
 // `;
 
-export { Container };
+export { Container, ListWrapper };
