@@ -3,9 +3,14 @@ import AddNote from "../AddNote";
 import Notes from "../Notes";
 import { Container, ListWrapper } from "./styled";
 
-export const NoteList = ({ notes, AddNoteHandler }) => {
-  const { todos } = notes[0];
-  const { first } = todos[0];
+export const NoteList = ({
+  notes,
+  addNoteHandler,
+  addTodoHandler,
+  deleteHandler,
+}) => {
+  // const { todos } = notes[0];
+  // const { first } = todos[0];
 
   // console.log(first);
   // console.log(todos);
@@ -17,7 +22,7 @@ export const NoteList = ({ notes, AddNoteHandler }) => {
 
   return (
     <Container>
-      <h1 align="center">Note List</h1>
+      {/* <h1 align="center">Note List</h1>
       {notes[0].todos[0].first} {""}
       {todos[0].first} {""}
       {first}
@@ -39,12 +44,26 @@ export const NoteList = ({ notes, AddNoteHandler }) => {
             })}
           </div>
         );
-      })}
+      })} */}
       <ListWrapper>
-        {notes.map((notes) => (
-          <Notes key={notes.id} notes={notes} />
+        {notes.map(({ id, title, todos, date, completed }) => (
+          <Notes
+            key={id}
+            id={id}
+            title={title}
+            todos={todos}
+            date={date}
+            completed={completed}
+            deleteHandler={deleteHandler}
+          />
         ))}
-        <AddNote notes={notes} AddNoteHandler={AddNoteHandler} />
+        <AddNote
+          notes={notes}
+          completed={notes.completed}
+          date={notes.date}
+          addNoteHandler={addNoteHandler}
+          addTodoHandler={addTodoHandler}
+        />
       </ListWrapper>
     </Container>
   );

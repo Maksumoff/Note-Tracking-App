@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, FooterNote, Icons } from "./styled";
 
-export const Notes = ({ notes }) => {
-  const { title, date, todos, completed } = notes;
-  const { first } = todos[0];
-  const { second } = todos[1];
-  const { third } = todos[2];
+export const Notes = ({ id, title, todos, date, completed, deleteHandler }) => {
+  // const { id, title, date, todos, completed } = notes;
+  // const { first } = todos[0];
+  // const { second } = todos[1];
+  // const { third } = todos[2];
 
   // console.log(notes);
   // console.log(notes.todos);
@@ -25,15 +25,17 @@ export const Notes = ({ notes }) => {
         <li>
           <label>
             <input type="checkbox" checked={completed} disabled />
-            {todos[0].first} {""}
-            {first}
+            {/* {todos[0].first} {""} */}
+            {todos}
           </label>
         </li>
-        <li>
+
+        {/* <li>
           <label>
             <input type="checkbox" checked={completed} disabled />
             {todos[1].second} {""}
             {second}
+            {todos}
           </label>
         </li>
         <li>
@@ -41,12 +43,13 @@ export const Notes = ({ notes }) => {
             <input type="checkbox" checked={completed} disabled />
             {todos[2].third} {""}
             {third}
+            {todos}
           </label>
-        </li>
+        </li> */}
       </ul>
       <FooterNote>
         <p>{date}</p>
-        <Icons.Trash />
+        <Icons.Trash onClick={() => deleteHandler(id)} />
       </FooterNote>
     </Container>
   );

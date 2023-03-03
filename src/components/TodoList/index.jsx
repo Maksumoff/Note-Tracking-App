@@ -32,7 +32,6 @@ export const Todo = ({ todo, removeTodo, handleChange, enterEditMode }) => {
             edit
           </Span>
           <Span onClick={() => removeTodo(todo.id)}>x</Span>
-          <button type="reset">reset</button>
         </InputWrapper>
       </InputWrapper>
     </Container>
