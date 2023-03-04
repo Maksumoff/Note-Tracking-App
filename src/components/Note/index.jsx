@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import NoteList from "../NoteList";
 import { Container } from "./styled";

@@ -5,6 +5,7 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
   const [task, setTask] = useState("");
   const [name, setName] = useState("");
   const taskLimit = 2;
+  const tasksNoun = todos.length < 2 ? "items" : "item";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +34,8 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
     task.length === 49 && alert("Please input up to 50 character");
     // console.log(task.length);
   };
-  console.log(todos);
+  console.log(todos.length);
+  console.log(tasksNoun);
 
   return (
     <FormWrapper>
@@ -75,9 +77,9 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
       )}
       <>
         <p align="center" style={{ margin: "10px" }}>
-          {`You left
+          {`You've left
               ${taskLimit + 1 - todos.length}
-              items to add
+              ${tasksNoun} to add
               `}
         </p>
       </>

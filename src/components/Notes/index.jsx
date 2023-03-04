@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, FooterNote, Icons } from "./styled";
+import React, { useState } from "react";
+import { Container, FooterNote, Icons, IconsWrapper, Input } from "./styled";
 
 export const Notes = ({
   id,
@@ -11,20 +11,22 @@ export const Notes = ({
   completed,
   deleteHandler,
 }) => {
+  const [editICon, setEditIcon] = useState(false);
+
   return (
     <Container>
       <h1>{title}</h1>
       <ul>
         <li>
           <label>
-            <input type="checkbox" checked={completed} disabled />
+            <Input type="checkbox" checked={completed} disabled />
             {todos}
           </label>
         </li>
         {todos1 && (
           <li>
             <label>
-              <input type="checkbox" checked={completed} disabled />
+              <Input type="checkbox" checked={completed} disabled />
               {todos1}
             </label>
           </li>
@@ -32,7 +34,7 @@ export const Notes = ({
         {todos2 && (
           <li>
             <label>
-              <input type="checkbox" checked={completed} disabled />
+              <Input type="checkbox" checked={completed} disabled />
               {todos2}
             </label>
           </li>
@@ -40,7 +42,20 @@ export const Notes = ({
       </ul>
       <FooterNote>
         <p>{date}</p>
-        <Icons.Trash onClick={() => deleteHandler(id)} />
+        <IconsWrapper>
+          {editICon ? (
+            <Icons.Save
+              size="1.5em"
+              onClick={() => setEditIcon((prev) => !prev)}
+            />
+          ) : (
+            <Icons.Edit
+              size="1.5em"
+              onClick={() => setEditIcon((prev) => !prev)}
+            />
+          )}
+          <Icons.Trash size="1.3em" onClick={() => deleteHandler(id)} />
+        </IconsWrapper>
       </FooterNote>
     </Container>
   );

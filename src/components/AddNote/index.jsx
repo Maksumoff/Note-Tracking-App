@@ -3,7 +3,7 @@ import { Container, FooterNote, Form, Icons, Input } from "./styled";
 import { nanoid } from "nanoid";
 
 export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
-  const [addBtn, SetAddBtn] = useState(false);
+  const [addBtn, setAddBtn] = useState(false);
   const [addNotes, setAddNotes] = useState([]);
 
   const titleRef = useRef("");
@@ -38,6 +38,7 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
       date: dateLocal,
       completed: false,
     };
+
     if (
       NewTodo?.title?.trim().length > 0 &&
       addNotes?.todos?.trim().length > 0
@@ -45,6 +46,7 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
       addNoteHandler(NewTodo);
       setAddNotes("");
       titleRef.current.value = "";
+      setAddBtn((prev) => !prev);
     } else {
       alert(
         `Please fill ${addNotes?.title?.trim().length > 0 ? "" : "title "}${
@@ -126,7 +128,7 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
           </FooterNote>
         </>
       ) : (
-        <Icons.AddBtn size="3.5em" onClick={() => SetAddBtn(!false)} />
+        <Icons.AddBtn size="3.5em" onClick={() => setAddBtn((prev) => !prev)} />
       )}
     </Container>
   );

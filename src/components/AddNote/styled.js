@@ -22,6 +22,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   cursor: not-allowed;
+  margin-right: 5px;
 `;
 
 const FooterNote = styled.div`
