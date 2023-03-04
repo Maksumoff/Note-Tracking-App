@@ -3,23 +3,7 @@ import AddNote from "../AddNote";
 import Notes from "../Notes";
 import { Container, ListWrapper } from "./styled";
 
-export const NoteList = ({
-  notes,
-  addNoteHandler,
-  addTodoHandler,
-  deleteHandler,
-}) => {
-  // const { todos } = notes[0];
-  // const { first } = todos[0];
-
-  // console.log(first);
-  // console.log(todos);
-
-  // console.log(notes);
-  // console.log(notes[0].todos[ 0]);
-  // console.log(notes[0].todos[1]);
-  // console.log(notes[0].todos[2]);
-
+export const NoteList = ({ notes, addNoteHandler, deleteHandler }) => {
   return (
     <Container>
       {/* <h1 align="center">Note List</h1>
@@ -46,12 +30,14 @@ export const NoteList = ({
         );
       })} */}
       <ListWrapper>
-        {notes.map(({ id, title, todos, date, completed }) => (
+        {notes.map(({ id, title, todos, todos1, todos2, date, completed }) => (
           <Notes
             key={id}
             id={id}
             title={title}
             todos={todos}
+            todos1={todos1}
+            todos2={todos2}
             date={date}
             completed={completed}
             deleteHandler={deleteHandler}
@@ -62,7 +48,6 @@ export const NoteList = ({
           completed={notes.completed}
           date={notes.date}
           addNoteHandler={addNoteHandler}
-          addTodoHandler={addTodoHandler}
         />
       </ListWrapper>
     </Container>

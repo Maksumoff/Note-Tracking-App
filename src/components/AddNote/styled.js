@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { HiOutlineTrash } from "react-icons/hi";
 import { MdPlaylistAdd } from "react-icons/md";
 import { MdOutlineDownloadDone } from "react-icons/md";
 // import { MdOutlineDownloadDone } from "react-icons/md";
@@ -13,6 +12,16 @@ const Container = styled.div`
   padding: 12px;
   min-height: 200px;
   border-radius: 20px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Input = styled.input`
+  cursor: not-allowed;
 `;
 
 const FooterNote = styled.div`
@@ -35,24 +44,7 @@ Icons.AddBtn = styled(MdPlaylistAdd)`
   cursor: pointer;
 `;
 
-const AddBtn = styled.button`
-  background: transparent;
-  border: none;
-`;
-
-const Plus = styled.h1`
-  text-align: center;
-  vertical-align: center;
-  padding: 20px;
-  font-size: 50px;
-  font-weight: 900;
-  border: 5px dashed #fff;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-`;
-
-export { Container, FooterNote, Icons, AddBtn, Plus };
+export { Container, FooterNote, Icons, Form, Input };
 
 // const Wrapper = styled.div`
 //   display: grid;

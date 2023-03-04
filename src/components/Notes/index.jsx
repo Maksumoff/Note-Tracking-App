@@ -1,23 +1,16 @@
 import React from "react";
 import { Container, FooterNote, Icons } from "./styled";
 
-export const Notes = ({ id, title, todos, date, completed, deleteHandler }) => {
-  // const { id, title, date, todos, completed } = notes;
-  // const { first } = todos[0];
-  // const { second } = todos[1];
-  // const { third } = todos[2];
-
-  // console.log(notes);
-  // console.log(notes.todos);
-  // console.log(notes.title);
-
-  // console.log(todos);
-  // console.log(first);
-
-  // console.log(todos[0].first, "notes");
-  // console.log(todos[1].second, "notes");
-  // console.log(todos[2].third, "notes");
-
+export const Notes = ({
+  id,
+  title,
+  todos,
+  todos1,
+  todos2,
+  date,
+  completed,
+  deleteHandler,
+}) => {
   return (
     <Container>
       <h1>{title}</h1>
@@ -25,27 +18,25 @@ export const Notes = ({ id, title, todos, date, completed, deleteHandler }) => {
         <li>
           <label>
             <input type="checkbox" checked={completed} disabled />
-            {/* {todos[0].first} {""} */}
             {todos}
           </label>
         </li>
-
-        {/* <li>
-          <label>
-            <input type="checkbox" checked={completed} disabled />
-            {todos[1].second} {""}
-            {second}
-            {todos}
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" checked={completed} disabled />
-            {todos[2].third} {""}
-            {third}
-            {todos}
-          </label>
-        </li> */}
+        {todos1 && (
+          <li>
+            <label>
+              <input type="checkbox" checked={completed} disabled />
+              {todos1}
+            </label>
+          </li>
+        )}
+        {todos2 && (
+          <li>
+            <label>
+              <input type="checkbox" checked={completed} disabled />
+              {todos2}
+            </label>
+          </li>
+        )}
       </ul>
       <FooterNote>
         <p>{date}</p>
