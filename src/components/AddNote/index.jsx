@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
 import { nanoid } from "nanoid";
 
@@ -13,6 +13,21 @@ export const AddNote = ({
   // const [addBtn, setAddBtn] = useState(false);
   const [addNotes, setAddNotes] = useState([]);
   const titleRef = useRef("");
+
+  const closeOnEscapeKeyDown = useCallback(
+    (e) => {
+      if ((e.charCode || e.keyCode) === 27) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+  useEffect(() => {
+    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    return function cleanup() {
+      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+    };
+  }, [closeOnEscapeKeyDown]);
 
   if (!show) {
     return null;
@@ -86,7 +101,7 @@ export const AddNote = ({
                 required
               />
             </label>
-            <Icons.Close size="1.2em" onClick={onClose} />
+            <Icons.Close size="20px" onClick={onClose} />
           </Form>
           <Form>
             <ul>

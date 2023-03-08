@@ -45,16 +45,16 @@ export const Notes = ({
         <IconsWrapper>
           {editICon ? (
             <Icons.Save
-              size="1.5em"
+              size="20px"
               onClick={() => setEditIcon((prev) => !prev)}
             />
           ) : (
             <Icons.Edit
-              size="1.5em"
+              size="20px"
               onClick={() => setEditIcon((prev) => !prev)}
             />
           )}
-          <Icons.Trash size="1.3em" onClick={() => deleteHandler(id)} />
+          <Icons.Trash size="20px" onClick={() => deleteHandler(id)} />
         </IconsWrapper>
       </FooterNote>
     </Container>

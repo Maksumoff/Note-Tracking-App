@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdOutlinePlaylistAddCheck } from "react-icons/md";
@@ -34,19 +34,42 @@ const IconsWrapper = styled.div`
 
 const Icons = styled.div``;
 
-Icons.Trash = styled(HiOutlineTrash)`
-  color: #cf142b;
+const cmn = css`
   cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all ease-in-out 0.1s;
+  :active {
+    transform: scale(0.8);
+  }
+`;
+
+Icons.Trash = styled(HiOutlineTrash)`
+  ${cmn};
+  color: #cf142b;
+  background: #fff;
+  :hover {
+    background: rgba(207, 20, 43);
+    color: #fff;
+  }
 `;
 
 Icons.Edit = styled(MdOutlineEditNote)`
-  color: #ffffff;
-  cursor: pointer;
+  ${cmn};
+  color: #0d263b;
+  background: #b8ff06;
+  :hover {
+    /* color: #ffffff;
+    background: #0d263b; */
+    /* background: #ffffff; */
+  }
 `;
 
 Icons.Save = styled(MdOutlinePlaylistAddCheck)`
+  ${cmn};
+  padding: 1px;
   color: #b8ff06;
-  cursor: pointer;
+  border: 4px solid #b8ff06; ;
 `;
 
 export { Container, FooterNote, Icons, IconsWrapper, Input };

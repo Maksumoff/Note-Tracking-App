@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { MdPlaylistAdd } from "react-icons/md";
 import { MdOutlineDownloadDone } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
@@ -49,14 +49,31 @@ const FooterNote = styled.div`
 
 const Icons = styled.div``;
 
-Icons.Close = styled(MdOutlineCancel)`
-  color: #cf142b;
+const cmn = css`
   cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all ease-in-out 0.1s;
+  :active {
+    transform: scale(0.8);
+  }
+`;
+
+Icons.Close = styled(MdOutlineCancel)`
+  ${cmn};
+  color: #cf142b;
+  background: #fff;
+  :hover {
+    color: #fff;
+    background: #cf142b;
+  }
 `;
 
 Icons.Done = styled(MdOutlineDownloadDone)`
+  ${cmn};
+  padding: 1px;
   color: #b8ff06;
-  cursor: pointer;
+  border: 4px solid #b8ff06; ;
 `;
 
 Icons.AddBtn = styled(MdPlaylistAdd)`
