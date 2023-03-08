@@ -43,6 +43,7 @@ export const EditTask = ({ editedTask, updateTask, closeEditMode }) => {
           button="true"
           value="save"
         />
+
         <Input
           type="button"
           aria-label="update you task"

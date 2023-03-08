@@ -1,5 +1,6 @@
 import React from "react";
 import AddNote from "../AddNote";
+import EditNote from "../EditNote";
 import Notes from "../Notes";
 import { Container, ListWrapper } from "./styled";
 
@@ -49,12 +50,19 @@ export const NoteList = ({
             deleteHandler={deleteHandler}
           />
         ))}
+
         <AddNote
           notes={notes}
           completed={notes.completed}
           date={notes.date}
           addNoteHandler={addNoteHandler}
           show={show}
+          onClose={onClose}
+        />
+        <EditNote
+          addNoteHandler={addNoteHandler}
+          show={show}
+          notes={notes}
           onClose={onClose}
         />
       </ListWrapper>
