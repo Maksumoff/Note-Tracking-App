@@ -3,7 +3,13 @@ import AddNote from "../AddNote";
 import Notes from "../Notes";
 import { Container, ListWrapper } from "./styled";
 
-export const NoteList = ({ notes, addNoteHandler, deleteHandler }) => {
+export const NoteList = ({
+  notes,
+  addNoteHandler,
+  deleteHandler,
+  show,
+  onClose,
+}) => {
   return (
     <Container>
       {/* <h1 align="center">Note List</h1>
@@ -48,6 +54,8 @@ export const NoteList = ({ notes, addNoteHandler, deleteHandler }) => {
           completed={notes.completed}
           date={notes.date}
           addNoteHandler={addNoteHandler}
+          show={show}
+          onClose={onClose}
         />
       </ListWrapper>
     </Container>

@@ -1,23 +1,38 @@
 import styled from "styled-components";
 import { MdPlaylistAdd } from "react-icons/md";
 import { MdOutlineDownloadDone } from "react-icons/md";
-// import { MdOutlineDownloadDone } from "react-icons/md";
+import { MdOutlineCancel } from "react-icons/md";
+
+const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(13, 38, 59, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #ffffff;
+  color: #fff;
   background: #0d263b;
   padding: 12px;
   min-height: 200px;
+  border: 3px solid #fff;
   border-radius: 20px;
+  width: 250px;
 `;
 
 const Form = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ close }) => (close ? "row" : "column")};
   justify-content: space-between;
+  align-items: ${({ close }) => close && "center"};
 `;
 
 const Input = styled.input`
@@ -34,8 +49,13 @@ const FooterNote = styled.div`
 
 const Icons = styled.div``;
 
+Icons.Close = styled(MdOutlineCancel)`
+  color: #cf142b;
+  cursor: pointer;
+`;
+
 Icons.Done = styled(MdOutlineDownloadDone)`
-  color: #ffffff;
+  color: #b8ff06;
   cursor: pointer;
 `;
 
@@ -45,7 +65,7 @@ Icons.AddBtn = styled(MdPlaylistAdd)`
   cursor: pointer;
 `;
 
-export { Container, FooterNote, Icons, Form, Input };
+export { Modal, Container, FooterNote, Icons, Form, Input };
 
 // const Wrapper = styled.div`
 //   display: grid;

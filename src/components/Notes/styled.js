@@ -35,7 +35,7 @@ const IconsWrapper = styled.div`
 const Icons = styled.div``;
 
 Icons.Trash = styled(HiOutlineTrash)`
-  color: #ffffff;
+  color: #cf142b;
   cursor: pointer;
 `;
 
@@ -45,7 +45,7 @@ Icons.Edit = styled(MdOutlineEditNote)`
 `;
 
 Icons.Save = styled(MdOutlinePlaylistAddCheck)`
-  color: #ffffff;
+  color: #b8ff06;
   cursor: pointer;
 `;
 

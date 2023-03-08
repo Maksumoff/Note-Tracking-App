@@ -1,5 +1,6 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { Icons } from "../AddNote/styled";
 import NoteList from "../NoteList";
 import { Container } from "./styled";
 // import { nanoid } from "nanoid";
@@ -42,6 +43,7 @@ export const Note = () => {
     //   completed: false,
     // },
   ]);
+  const [show, setShow] = useState(false);
 
   const addNoteHandler = (note) => {
     setNotes((notes) => [...notes, note]);
@@ -55,11 +57,14 @@ export const Note = () => {
 
   return (
     <Container>
-      <h1>Note page</h1>
+      <h1>Note page </h1>
+      <Icons.AddBtn size="3.2em" onClick={() => setShow(true)} />
       <NoteList
         notes={notes}
         addNoteHandler={addNoteHandler}
         deleteHandler={deleteHandler}
+        show={show}
+        onClose={() => setShow(false)}
       />
     </Container>
   );

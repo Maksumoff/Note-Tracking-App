@@ -70,8 +70,6 @@ export const TodoContainer = () => {
     setIsEditing(true);
   };
 
-  console.log();
-
   return (
     <div>
       <header>

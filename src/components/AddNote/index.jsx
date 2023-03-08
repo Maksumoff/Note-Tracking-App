@@ -1,12 +1,22 @@
 import React, { useRef, useState } from "react";
-import { Container, FooterNote, Form, Icons, Input } from "./styled";
+import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
 import { nanoid } from "nanoid";
 
-export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
-  const [addBtn, setAddBtn] = useState(false);
+export const AddNote = ({
+  notes,
+  addNoteHandler,
+  completed,
+  date,
+  show,
+  onClose,
+}) => {
+  // const [addBtn, setAddBtn] = useState(false);
   const [addNotes, setAddNotes] = useState([]);
-
   const titleRef = useRef("");
+
+  if (!show) {
+    return null;
+  }
 
   // useEffect(() => {
   //   titleRef.current = addNotes.title;
@@ -46,7 +56,8 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
       addNoteHandler(NewTodo);
       setAddNotes("");
       titleRef.current.value = "";
-      setAddBtn((prev) => !prev);
+      // setAddBtn((prev) => !prev);
+      onClose();
     } else {
       alert(
         `Please fill ${addNotes?.title?.trim().length > 0 ? "" : "title "}${
@@ -58,10 +69,11 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
   };
 
   return (
-    <Container>
-      {addBtn ? (
+    <Modal onClick={onClose}>
+      <Container onClick={(e) => e.stopPropagation()}>
+        {/* {addBtn ? ( */}
         <>
-          <Form onSubmit={onSubmitHandler}>
+          <Form onSubmit={onSubmitHandler} close>
             <label>
               <input
                 type="text"
@@ -74,6 +86,7 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
                 required
               />
             </label>
+            <Icons.Close size="1.2em" onClick={onClose} />
           </Form>
           <Form>
             <ul>
@@ -124,13 +137,14 @@ export const AddNote = ({ notes, addNoteHandler, completed, date }) => {
           </Form>
           <FooterNote>
             <p>{dateLocal}</p>
-            <Icons.Done onClick={onSubmitHandler} />
+            <Icons.Done onClick={onSubmitHandler} size="1.2em" />
           </FooterNote>
         </>
-      ) : (
+        {/* ) : (
         <Icons.AddBtn size="3.5em" onClick={() => setAddBtn((prev) => !prev)} />
-      )}
-    </Container>
+        )} */}
+      </Container>
+    </Modal>
   );
 };
 
