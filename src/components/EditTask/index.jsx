@@ -14,6 +14,7 @@ export const EditTask = ({ editedTask, updateTask, closeEditMode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTask({ ...editedTask, title: updatedTask });
+    console.log(editedTask);
   };
 
   const onInput = (e) => {

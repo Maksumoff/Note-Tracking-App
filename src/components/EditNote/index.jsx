@@ -2,18 +2,28 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
 import { nanoid } from "nanoid";
 
-export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
+export const EditNote = ({
+  addNoteHandler,
+  completed,
+  show,
+  onClose,
+  isEditing,
+  onOpenEdit,
+  onCloseEdit,
+  editedTask,
+  updateNote,
+}) => {
   // const [addBtn, setAddBtn] = useState(false);
-  const [addNotes, setAddNotes] = useState([]);
+  const [updateNotes, setUpdateNotes] = useState(editedTask);
   const titleRef = useRef("");
 
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
-        onClose();
+        onCloseEdit();
       }
     },
-    [onClose]
+    [onCloseEdit]
   );
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -29,47 +39,72 @@ export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
   });
 
   const OnChange = ({ target }) => {
-    const nameHandler = { ...addNotes, [target.name]: target.value };
-    setAddNotes(nameHandler);
+    const nameHandler = { ...updateNotes, [target.name]: target.value };
+    setUpdateNotes(nameHandler);
     // console.log(target.name, target.value);
-    // console.log(setAddNotes({ [e.target.name]: e.target.value }));
+    // setUpdateNotes({ ...updateNote, [target.name]: target.value });
+    // console.log(setUpdateNotes({ [e.target.name]: e.target.value }));
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    let NewTodo = {
-      id: nanoid(),
-      title: titleRef.current.value,
-      todos: addNotes.todos,
-      todos1: addNotes.todos1,
-      todos2: addNotes.todos2,
-      date: dateLocal,
-      completed: false,
-    };
-
-    if (
-      NewTodo?.title?.trim().length > 0 &&
-      addNotes?.todos?.trim().length > 0
-    ) {
-      addNoteHandler(NewTodo);
-      setAddNotes("");
-      titleRef.current.value = "";
-      // setAddBtn((prev) => !prev);
-      onClose();
-    } else {
-      alert(
-        `Please fill ${addNotes?.title?.trim().length > 0 ? "" : "title "}${
-          addNotes?.todos?.trim().length > 0 ? "" : "todos"
-        }
-          `
-      );
-    }
+    updateNote({
+      ...editedTask,
+      title: updateNotes.title,
+      todos: updateNotes.todos,
+    });
+    console.log(editedTask);
+    onCloseEdit();
   };
 
+  // const onSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   let NewTodo = {
+  //     id: editedTask.id,
+  //     title: titleRef.current.value,
+  //     todos: updateNotes.todos,
+  //     todos1: updateNotes.todos1,
+  //     todos2: updateNotes.todos2,
+  //     date: dateLocal,
+  //     completed: false,
+  //   };
+
+  //   if (
+  //     NewTodo?.title?.trim().length > 0 &&
+  //     updateNotes?.todos?.trim().length > 0
+  //   ) {
+  //     updateNote({
+  //       ...editedTask,
+  //       id: NewTodo.id,
+  //       title: NewTodo.title,
+  //       todos: NewTodo.todos,
+  //     });
+
+  //     setUpdateNotes("");
+  //     titleRef.current.value = "";
+  //     // setAddBtn((prev) => !prev);
+  //     onCloseEdit();
+
+  //     console.log(NewTodo);
+  //     // console.log(updateNotes);
+  //   } else {
+  //     alert(
+  //       `Please fill ${updateNotes?.title?.trim().length > 0 ? "" : "title "}${
+  //         updateNotes?.todos?.trim().length > 0 ? "" : "todos"
+  //       }
+  //         `
+  //     );
+  //   }
+  // };
+
+  // console.log(updateNotes.title);
+  // console.log(updateNotes.todos);
+  // console.log(editedTask.title);
   return (
     <>
-      {show ? (
-        <Modal onClick={onClose}>
+      <h1>Edit note</h1>
+      {isEditing ? (
+        <Modal onClick={onCloseEdit}>
           <Container onClick={(e) => e.stopPropagation()}>
             <Form onSubmit={onSubmitHandler} close>
               <label>
@@ -77,14 +112,15 @@ export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
                   type="text"
                   name="title"
                   placeholder="Enter title ..."
-                  ref={titleRef}
-                  // value={addNotes.title || ""}
-                  // onChange={OnChange}
+                  // ref={titleRef}
+                  // defaultValue={updateNotes.title || ""}
+                  value={updateNotes.title || ""}
+                  onChange={OnChange}
                   autoFocus
                   required
                 />
               </label>
-              <Icons.Close size="20px" onClick={onClose} />
+              <Icons.Close size="20px" onClick={onCloseEdit} />
             </Form>
             <Form>
               <ul>
@@ -97,7 +133,7 @@ export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
                       type="text"
                       name="todos"
                       placeholder="Enter todo items ..."
-                      value={addNotes.todos || ""}
+                      value={updateNotes.todos || ""}
                       onChange={OnChange}
                       required
                     />
@@ -112,7 +148,7 @@ export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
                       type="text"
                       name="todos1"
                       placeholder="Enter todo items ..."
-                      value={addNotes.todos1 || ""}
+                      value={updateNotes.todos1 || ""}
                       onChange={OnChange}
                     />
                   </label>
@@ -126,7 +162,7 @@ export const EditNote = ({ addNoteHandler, completed, show, onClose }) => {
                       type="text"
                       name="todos2"
                       placeholder="Enter todo items ..."
-                      value={addNotes.todos2 || ""}
+                      value={updateNotes.todos2 || ""}
                       onChange={OnChange}
                     />
                   </label>

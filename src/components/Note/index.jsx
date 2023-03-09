@@ -44,15 +44,42 @@ export const Note = () => {
     // },
   ]);
   const [show, setShow] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTask, setEditedTask] = useState(null);
 
   const addNoteHandler = (note) => {
-    setNotes((notes) => [...notes, note]);
+    setNotes((prev) => [...prev, note]);
     console.log(note);
   };
 
   const deleteHandler = (id) => {
     setNotes((prev) => prev.filter((note) => note.id !== id));
     console.log(id + "hey");
+  };
+
+  const updateNote = (updateNote) => {
+    console.log(updateNote);
+
+    // console.log(updateNote.todos);
+    setNotes((prev) =>
+      prev.map((notes) =>
+        notes.id === updateNote.id
+          ? { ...notes, title: updateNote.title, todos: updateNote.todos }
+          : notes
+      )
+    );
+  };
+
+  const enterEditMode = ({ id, title, todos, todos1, todos2 }) => {
+    setEditedTask({ id, title, todos, todos1, todos2 });
+    setIsEditing(true);
+    // console.log(
+    //   "title:" + title,
+    //   "todos:" + todos,
+    //   "todos1:" + todos1,
+    //   "todos2:" + todos2
+    // );
+    // console.log(todos);
   };
 
   return (
@@ -65,6 +92,12 @@ export const Note = () => {
         deleteHandler={deleteHandler}
         show={show}
         onClose={() => setShow(false)}
+        isEditing={isEditing}
+        onOpenEdit={() => setIsEditing(true)}
+        onCloseEdit={() => setIsEditing(false)}
+        enterEditMode={enterEditMode}
+        editedTask={editedTask}
+        updateNote={updateNote}
       />
     </Container>
   );

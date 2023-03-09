@@ -10,8 +10,17 @@ export const Notes = ({
   date,
   completed,
   deleteHandler,
+  enterEditMode,
+  onOpenEdit,
 }) => {
   const [editICon, setEditIcon] = useState(false);
+
+  const editMode = (note) => {
+    enterEditMode(note);
+    // setEditIcon((prev) => !prev);
+    setEditIcon(true);
+    onOpenEdit();
+  };
 
   return (
     <Container>
@@ -44,14 +53,11 @@ export const Notes = ({
         <p>{date}</p>
         <IconsWrapper>
           {editICon ? (
-            <Icons.Save
-              size="20px"
-              onClick={() => setEditIcon((prev) => !prev)}
-            />
+            <Icons.Save size="20px" onClick={() => setEditIcon(false)} />
           ) : (
             <Icons.Edit
               size="20px"
-              onClick={() => setEditIcon((prev) => !prev)}
+              onClick={() => editMode({ id, title, todos, todos1, todos2 })}
             />
           )}
           <Icons.Trash size="20px" onClick={() => deleteHandler(id)} />

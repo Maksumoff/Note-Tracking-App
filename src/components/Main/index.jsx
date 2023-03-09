@@ -53,6 +53,7 @@ export const TodoContainer = () => {
   };
 
   const updateTask = (task) => {
+    console.log(task);
     setTodos((prev) =>
       prev.map((todo) =>
         todo.id === task.id ? { ...todo, title: task.title } : todo

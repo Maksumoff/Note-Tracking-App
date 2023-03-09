@@ -10,6 +10,12 @@ export const NoteList = ({
   deleteHandler,
   show,
   onClose,
+  isEditing,
+  editedTask,
+  onOpenEdit,
+  onCloseEdit,
+  updateNote,
+  enterEditMode,
 }) => {
   return (
     <Container>
@@ -37,6 +43,29 @@ export const NoteList = ({
         );
       })} */}
       <ListWrapper>
+        {isEditing ? (
+          <EditNote
+            addNoteHandler={addNoteHandler}
+            show={show}
+            notes={notes}
+            onClose={onClose}
+            isEditing={isEditing}
+            onOpenEdit={onOpenEdit}
+            onCloseEdit={onCloseEdit}
+            editedTask={editedTask}
+            updateNote={updateNote}
+          />
+        ) : (
+          <AddNote
+            notes={notes}
+            completed={notes.completed}
+            date={notes.date}
+            addNoteHandler={addNoteHandler}
+            show={show}
+            onClose={onClose}
+          />
+        )}
+
         {notes.map(({ id, title, todos, todos1, todos2, date, completed }) => (
           <Notes
             key={id}
@@ -48,23 +77,10 @@ export const NoteList = ({
             date={date}
             completed={completed}
             deleteHandler={deleteHandler}
+            enterEditMode={enterEditMode}
+            onOpenEdit={onOpenEdit}
           />
         ))}
-
-        <AddNote
-          notes={notes}
-          completed={notes.completed}
-          date={notes.date}
-          addNoteHandler={addNoteHandler}
-          show={show}
-          onClose={onClose}
-        />
-        <EditNote
-          addNoteHandler={addNoteHandler}
-          show={show}
-          notes={notes}
-          onClose={onClose}
-        />
       </ListWrapper>
     </Container>
   );
