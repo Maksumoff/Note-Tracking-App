@@ -57,7 +57,9 @@ export const Notes = ({
           ) : (
             <Icons.Edit
               size="20px"
-              onClick={() => editMode({ id, title, todos, todos1, todos2 })}
+              onClick={() =>
+                editMode({ id, title, todos, todos1, todos2, date, completed })
+              }
             />
           )}
           <Icons.Trash size="20px" onClick={() => deleteHandler(id)} />

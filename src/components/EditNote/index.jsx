@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
-import { nanoid } from "nanoid";
 
 export const EditNote = ({
   addNoteHandler,
@@ -41,9 +40,6 @@ export const EditNote = ({
   const OnChange = ({ target }) => {
     const nameHandler = { ...updateNotes, [target.name]: target.value };
     setUpdateNotes(nameHandler);
-    // console.log(target.name, target.value);
-    // setUpdateNotes({ ...updateNote, [target.name]: target.value });
-    // console.log(setUpdateNotes({ [e.target.name]: e.target.value }));
   };
 
   const onSubmitHandler = (e) => {
@@ -52,8 +48,12 @@ export const EditNote = ({
       ...editedTask,
       title: updateNotes.title,
       todos: updateNotes.todos,
+      todos1: updateNotes.todos1,
+      todos2: updateNotes.todos2,
+      date: dateLocal + " edited*",
     });
-    console.log(editedTask);
+    //  console.log(editedTask);
+
     onCloseEdit();
   };
 
@@ -122,7 +122,7 @@ export const EditNote = ({
               </label>
               <Icons.Close size="20px" onClick={onCloseEdit} />
             </Form>
-            <Form>
+            <Form onSubmit={onSubmitHandler}>
               <ul>
                 <li>
                   <label>
@@ -139,34 +139,38 @@ export const EditNote = ({
                     />
                   </label>
                 </li>
-                <li>
-                  <label>
-                    <Input type="checkbox" checked={completed} disabled />
-                  </label>
-                  <label>
-                    <input
-                      type="text"
-                      name="todos1"
-                      placeholder="Enter todo items ..."
-                      value={updateNotes.todos1 || ""}
-                      onChange={OnChange}
-                    />
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <Input type="checkbox" checked={completed} disabled />
-                  </label>
-                  <label>
-                    <input
-                      type="text"
-                      name="todos2"
-                      placeholder="Enter todo items ..."
-                      value={updateNotes.todos2 || ""}
-                      onChange={OnChange}
-                    />
-                  </label>
-                </li>
+                {updateNotes.todos1 && (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label>
+                      <input
+                        type="text"
+                        name="todos1"
+                        placeholder="Enter todo items ..."
+                        value={updateNotes.todos1 || ""}
+                        onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                )}
+                {updateNotes.todos2 && (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label>
+                      <input
+                        type="text"
+                        name="todos2"
+                        placeholder="Enter todo items ..."
+                        value={updateNotes.todos2 || ""}
+                        onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                )}
               </ul>
             </Form>
             <FooterNote>

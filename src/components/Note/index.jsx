@@ -58,20 +58,36 @@ export const Note = () => {
   };
 
   const updateNote = (updateNote) => {
-    console.log(updateNote);
+    // console.log(updateNote);
 
     // console.log(updateNote.todos);
     setNotes((prev) =>
       prev.map((notes) =>
         notes.id === updateNote.id
-          ? { ...notes, title: updateNote.title, todos: updateNote.todos }
+          ? {
+              ...notes,
+              title: updateNote.title,
+              todos: updateNote.todos,
+              todos1: updateNote.todos1,
+              todos2: updateNote.todos2,
+              date: updateNote.date,
+              completed: updateNote.completed,
+            }
           : notes
       )
     );
   };
 
-  const enterEditMode = ({ id, title, todos, todos1, todos2 }) => {
-    setEditedTask({ id, title, todos, todos1, todos2 });
+  const enterEditMode = ({
+    id,
+    title,
+    todos,
+    todos1,
+    todos2,
+    date,
+    completed,
+  }) => {
+    setEditedTask({ id, title, todos, todos1, todos2, date, completed });
     setIsEditing(true);
     // console.log(
     //   "title:" + title,
