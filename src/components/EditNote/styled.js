@@ -68,9 +68,9 @@ Icons.Close = styled(MdOutlineCancel)`
 
 Icons.Done = styled(MdOutlineDownloadDone)`
   ${cmn};
-  padding: 1px;
+  padding: 2px;
   color: #b8ff06;
-  border: 4px solid #b8ff06; ;
+  border: 3px solid #b8ff06; ;
 `;
 
 Icons.AddBtn = styled(MdPlaylistAdd)`

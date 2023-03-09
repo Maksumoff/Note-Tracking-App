@@ -13,12 +13,12 @@ export const Notes = ({
   enterEditMode,
   onOpenEdit,
 }) => {
-  const [editICon, setEditIcon] = useState(false);
+  // const [editICon, setEditIcon] = useState(false);
 
   const editMode = (note) => {
     enterEditMode(note);
     // setEditIcon((prev) => !prev);
-    setEditIcon(true);
+    // setEditIcon(true);
     onOpenEdit();
   };
 
@@ -52,7 +52,7 @@ export const Notes = ({
       <FooterNote>
         <p>{date}</p>
         <IconsWrapper>
-          {editICon ? (
+          {/* {editICon ? (
             <Icons.Save size="20px" onClick={() => setEditIcon(false)} />
           ) : (
             <Icons.Edit
@@ -61,7 +61,13 @@ export const Notes = ({
                 editMode({ id, title, todos, todos1, todos2, date, completed })
               }
             />
-          )}
+          )} */}
+          <Icons.Edit
+            size="20px"
+            onClick={() =>
+              editMode({ id, title, todos, todos1, todos2, date, completed })
+            }
+          />
           <Icons.Trash size="20px" onClick={() => deleteHandler(id)} />
         </IconsWrapper>
       </FooterNote>
