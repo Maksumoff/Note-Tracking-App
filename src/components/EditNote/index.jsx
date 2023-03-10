@@ -1,5 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
+import {
+  Modal,
+  Container,
+  FooterNote,
+  Form,
+  Icons,
+  Input,
+  InputField,
+} from "./styled";
 
 export const EditNote = ({
   completed,
@@ -41,23 +49,6 @@ export const EditNote = ({
     setUpdateNotes(nameHandler);
   };
 
-  // const onSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   updateNote({
-  //     ...editedTask,
-  //     // title: updateNotes.title,
-  //     // todos: updateNotes.todos,
-  //     // todos1: updateNotes.todos1,
-  //     // todos2: updateNotes.todos2,
-  //     title: titleRef.current.value,
-  //     todos: todosRef.current.value,
-  //     todos1: todos1Ref.current.value,
-  //     todos2: todos2Ref.current.value,
-  //     date: dateLocal + " edited*",
-  //   });
-  //   onCloseEdit();
-  // };
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (
@@ -86,7 +77,6 @@ export const EditNote = ({
       );
     }
   };
-  // console.log(isEditing);
 
   return (
     <>
@@ -94,8 +84,8 @@ export const EditNote = ({
       <Modal onClick={onCloseEdit}>
         <Container onClick={(e) => e.stopPropagation()}>
           <Form onSubmit={onSubmitHandler} close>
-            <label>
-              <input
+            <label style={{ flex: "1", marginRight: "10px" }}>
+              <InputField
                 type="text"
                 name="title"
                 placeholder="Enter title ..."
@@ -115,8 +105,8 @@ export const EditNote = ({
                 <label>
                   <Input type="checkbox" checked={completed} disabled />
                 </label>
-                <label>
-                  <input
+                <label style={{ flex: "1", marginRight: "42px" }}>
+                  <InputField
                     type="text"
                     name="todos"
                     placeholder="Enter todo items ..."
@@ -133,8 +123,8 @@ export const EditNote = ({
                   <label>
                     <Input type="checkbox" checked={completed} disabled />
                   </label>
-                  <label>
-                    <input
+                  <label style={{ flex: "1", marginRight: "42px" }}>
+                    <InputField
                       type="text"
                       name="todos1"
                       placeholder="Enter todo items ..."
@@ -151,8 +141,8 @@ export const EditNote = ({
                   <label>
                     <Input type="checkbox" checked={completed} disabled />
                   </label>
-                  <label>
-                    <input
+                  <label style={{ flex: "1", marginRight: "42px" }}>
+                    <InputField
                       type="text"
                       name="todos2"
                       placeholder="Enter todo items ..."

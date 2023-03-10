@@ -22,7 +22,7 @@ const Container = styled.div`
   min-height: 200px;
   border: 3px solid #fff;
   border-radius: 20px;
-  width: 250px;
+  width: 330px;
 `;
 
 const Form = styled.form`
@@ -31,6 +31,28 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: ${({ close }) => close && "center"};
 `;
+
+const InputField = styled.input`
+  width: 90%;
+  border: 3px solid #fff;
+  border-radius: 9px 14px 9px 14px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 7px;
+  margin: 4px 2px;
+  outline: #fff solid 2px;
+  border: none;
+  :focus {
+    outline: #b8ff06 solid 2px;
+    /* border: 3px solid #b8ff06; */
+  }
+`;
+
+// display: flex;
+//   flex: 1;
+//   margin-right: 10px;
 
 const Input = styled.input`
   cursor: not-allowed;
@@ -79,7 +101,7 @@ Icons.AddBtn = styled(MdPlaylistAdd)`
   cursor: pointer;
 `;
 
-export { Modal, Container, FooterNote, Icons, Form, Input };
+export { Modal, Container, FooterNote, InputField, Icons, Form, Input };
 
 // const Wrapper = styled.div`
 //   display: grid;

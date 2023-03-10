@@ -55,8 +55,31 @@ body {
 
 .inline {
   /* display: flex; */
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  /* white-space: nowrap; */
+}
+
+input {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* white-space: pre-wrap; */
+  /* style={{ display: "flex", flex: "1", marginRight: "10px" }} */
+}
+
+::placeholder {
+  color: #fff;
+  font-weight: 300;
 }
 
 ::-webkit-scrollbar {
@@ -74,4 +97,8 @@ body {
 }
 ul {
   list-style: none;
+}
+li {
+  display: flex;
+  align-items: center;
 }

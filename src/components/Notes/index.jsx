@@ -24,13 +24,18 @@ export const Notes = ({
 
   return (
     <Container>
-      <h1>{title}</h1>
+      <h1
+        className="inline
+      "
+      >
+        {title}
+      </h1>
       <ul>
         <li>
-          <label>
-            <Input type="checkbox" checked={completed} disabled />
-            {todos}
-          </label>
+          <Input id="todos" type="checkbox" checked={completed} disabled />
+          <label htmlFor="todos">{todos}</label>
+
+          <p></p>
         </li>
         {todos1 && (
           <li>
@@ -50,7 +55,9 @@ export const Notes = ({
         )}
       </ul>
       <FooterNote>
-        <p>{date}</p>
+        <p>
+          <small>{date}</small>
+        </p>
         <IconsWrapper>
           {/* {editICon ? (
             <Icons.Save size="20px" onClick={() => setEditIcon(false)} />
