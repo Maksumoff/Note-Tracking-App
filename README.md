@@ -1,8 +1,8 @@
 # Getting Started with Maksumoff
 
-This project is available on GitHub [House-renting](https://renting-house.netlify.app/).
+This project is available on GitHub [Note-traking](https://github.com/Maksumoff/Note-Tracking-App/).
 
-# can see the Demo [House-renting](https://note-tracking-app.netlify.app/).
+# can see the Demo [Note-traking](https://note-tracking-app.netlify.app/).
 
 ## Available Scripts
 
