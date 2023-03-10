@@ -140,7 +140,7 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
               </ul>
             </Form>
             <FooterNote>
-              <p>{dateLocal}</p>
+              <small>{dateLocal}</small>
               <Icons.Done onClick={onSubmitHandler} size="20px" />
             </FooterNote>
           </Container>

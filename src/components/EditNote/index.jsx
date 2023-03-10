@@ -158,7 +158,7 @@ export const EditNote = ({
               </ul>
             </Form>
             <FooterNote>
-              <p>{dateLocal}</p>
+              <small>{dateLocal}</small>
               <Icons.Save onClick={onSubmitHandler} size="20px" />
             </FooterNote>
           </Container>
