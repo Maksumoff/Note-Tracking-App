@@ -22,7 +22,7 @@ const Container = styled.div`
   min-height: 200px;
   border: 3px solid #fff;
   border-radius: 20px;
-  width: 250px;
+  width: 330px;
 `;
 
 const Form = styled.form`

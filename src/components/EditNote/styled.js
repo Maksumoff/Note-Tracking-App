@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
-import { MdPlaylistAdd } from "react-icons/md";
-import { MdOutlineDownloadDone } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlinePlaylistAddCheck } from "react-icons/md";
 
 const Modal = styled.div`
   position: fixed;
@@ -50,10 +49,6 @@ const InputField = styled.input`
   }
 `;
 
-// display: flex;
-//   flex: 1;
-//   margin-right: 10px;
-
 const Input = styled.input`
   cursor: not-allowed;
   margin-right: 5px;
@@ -87,32 +82,11 @@ Icons.Close = styled(MdOutlineCancel)`
     background: #cf142b;
   }
 `;
-
-Icons.Done = styled(MdOutlineDownloadDone)`
+Icons.Save = styled(MdOutlinePlaylistAddCheck)`
   ${cmn};
-  padding: 2px;
+  padding: 1px;
   color: #b8ff06;
-  border: 3px solid #b8ff06; ;
-`;
-
-Icons.AddBtn = styled(MdPlaylistAdd)`
-  margin: auto;
-  padding: 20px;
-  cursor: pointer;
+  border: 4px solid #b8ff06; ;
 `;
 
 export { Modal, Container, FooterNote, InputField, Icons, Form, Input };
-
-// const Wrapper = styled.div`
-//   display: grid;
-//   grid-auto-flow: row;
-//   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-//   grid-gap: 20px;
-//   max-width: 1440px;
-//   width: 100%;
-//   margin: auto;
-//   padding: var(--padding);
-//   padding-bottom: 20px;
-//   box-sizing: border-box;
-//   margin: auto;
-// `;

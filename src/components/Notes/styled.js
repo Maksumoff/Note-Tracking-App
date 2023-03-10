@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MdOutlineEditNote } from "react-icons/md";
-import { MdOutlinePlaylistAddCheck } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
@@ -58,32 +57,6 @@ Icons.Edit = styled(MdOutlineEditNote)`
   ${cmn};
   color: #0d263b;
   background: #b8ff06;
-  :hover {
-    /* color: #ffffff;
-    background: #0d263b; */
-    /* background: #ffffff; */
-  }
-`;
-
-Icons.Save = styled(MdOutlinePlaylistAddCheck)`
-  ${cmn};
-  padding: 1px;
-  color: #b8ff06;
-  border: 4px solid #b8ff06; ;
 `;
 
 export { Container, FooterNote, Icons, IconsWrapper, Input };
-
-// const Wrapper = styled.div`
-//   display: grid;
-//   grid-auto-flow: row;
-//   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-//   grid-gap: 20px;
-//   max-width: 1440px;
-//   width: 100%;
-//   margin: auto;
-//   padding: var(--padding);
-//   padding-bottom: 20px;
-//   box-sizing: border-box;
-//   margin: auto;
-// `;

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Container, FooterNote, Icons, IconsWrapper, Input } from "./styled";
 
 export const Notes = ({
@@ -13,15 +12,11 @@ export const Notes = ({
   enterEditMode,
   onOpenEdit,
 }) => {
-  // const [editICon, setEditIcon] = useState(false);
-
   const editMode = (note) => {
     enterEditMode(note);
-    // setEditIcon((prev) => !prev);
-    // setEditIcon(true);
+
     onOpenEdit();
   };
-
   return (
     <Container>
       <h1
@@ -32,16 +27,16 @@ export const Notes = ({
       </h1>
       <ul>
         <li>
-          <Input id="todos" type="checkbox" checked={completed} disabled />
-          <label htmlFor="todos">{todos}</label>
-
-          <p></p>
+          <label>
+            <Input type="checkbox" checked={completed} disabled />
+            <p className="inline">{todos}</p>
+          </label>
         </li>
         {todos1 && (
           <li>
             <label>
               <Input type="checkbox" checked={completed} disabled />
-              {todos1}
+              <p className="inline">{todos1}</p>
             </label>
           </li>
         )}
@@ -49,26 +44,14 @@ export const Notes = ({
           <li>
             <label>
               <Input type="checkbox" checked={completed} disabled />
-              {todos2}
+              <p className="inline">{todos2}</p>
             </label>
           </li>
         )}
       </ul>
       <FooterNote>
-        <p>
-          <small>{date}</small>
-        </p>
+        <small>{date}</small>
         <IconsWrapper>
-          {/* {editICon ? (
-            <Icons.Save size="20px" onClick={() => setEditIcon(false)} />
-          ) : (
-            <Icons.Edit
-              size="20px"
-              onClick={() =>
-                editMode({ id, title, todos, todos1, todos2, date, completed })
-              }
-            />
-          )} */}
           <Icons.Edit
             size="20px"
             onClick={() =>

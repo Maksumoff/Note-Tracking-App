@@ -44,10 +44,10 @@ export const EditNote = ({
     second: "2-digit",
   });
 
-  const OnChange = ({ target }) => {
-    const nameHandler = { ...updateNotes, [target.name]: target.value };
-    setUpdateNotes(nameHandler);
-  };
+  // const OnChange = ({ target }) => {
+  //   const nameHandler = { ...updateNotes, [target.name]: target.value };
+  //   setUpdateNotes(nameHandler);
+  // };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -63,6 +63,7 @@ export const EditNote = ({
         todos2: todos2Ref.current.value,
         date: dateLocal + " edited*",
       });
+      setUpdateNotes("");
       onCloseEdit();
     } else {
       alert(
@@ -80,90 +81,89 @@ export const EditNote = ({
 
   return (
     <>
-      {/* {isEditing ? ( */}
-      <Modal onClick={onCloseEdit}>
-        <Container onClick={(e) => e.stopPropagation()}>
-          <Form onSubmit={onSubmitHandler} close>
-            <label style={{ flex: "1", marginRight: "10px" }}>
-              <InputField
-                type="text"
-                name="title"
-                placeholder="Enter title ..."
-                ref={titleRef}
-                defaultValue={updateNotes.title || ""}
-                // value={updateNotes.title || ""}
-                // onChange={OnChange}
-                autoFocus
-                required
-              />
-            </label>
-            <Icons.Close size="20px" onClick={onCloseEdit} />
-          </Form>
-          <Form onSubmit={onSubmitHandler}>
-            <ul>
-              <li>
-                <label>
-                  <Input type="checkbox" checked={completed} disabled />
-                </label>
-                <label style={{ flex: "1", marginRight: "42px" }}>
-                  <InputField
-                    type="text"
-                    name="todos"
-                    placeholder="Enter todo items ..."
-                    ref={todosRef}
-                    defaultValue={updateNotes.todos || ""}
-                    // value={updateNotes.todos || ""}
-                    // onChange={OnChange}
-                    required
-                  />
-                </label>
-              </li>
-              {updateNotes.todos1 && (
+      {isEditing ? (
+        <Modal onClick={onCloseEdit}>
+          <Container onClick={(e) => e.stopPropagation()}>
+            <Form onSubmit={onSubmitHandler} close>
+              <label style={{ flex: "1", marginRight: "10px" }}>
+                <InputField
+                  type="text"
+                  name="title"
+                  placeholder="Enter title ..."
+                  ref={titleRef}
+                  defaultValue={updateNotes.title || ""}
+                  // value={updateNotes.title || ""}
+                  // onChange={OnChange}
+                  autoFocus
+                  required
+                />
+              </label>
+              <Icons.Close size="20px" onClick={onCloseEdit} />
+            </Form>
+            <Form onSubmit={onSubmitHandler}>
+              <ul>
                 <li>
                   <label>
                     <Input type="checkbox" checked={completed} disabled />
                   </label>
-                  <label style={{ flex: "1", marginRight: "42px" }}>
+                  <label style={{ flex: "1", marginRight: "43px" }}>
                     <InputField
                       type="text"
-                      name="todos1"
+                      name="todos"
                       placeholder="Enter todo items ..."
-                      ref={todos1Ref}
-                      defaultValue={updateNotes.todos1 || ""}
-                      // value={updateNotes.todos1 || ""}
+                      ref={todosRef}
+                      defaultValue={updateNotes.todos || ""}
+                      // value={updateNotes.todos || ""}
                       // onChange={OnChange}
+                      required
                     />
                   </label>
                 </li>
-              )}
-              {updateNotes.todos2 && (
-                <li>
-                  <label>
-                    <Input type="checkbox" checked={completed} disabled />
-                  </label>
-                  <label style={{ flex: "1", marginRight: "42px" }}>
-                    <InputField
-                      type="text"
-                      name="todos2"
-                      placeholder="Enter todo items ..."
-                      ref={todos2Ref}
-                      defaultValue={updateNotes.todos2 || ""}
-                      // value={updateNotes.todos2 || ""}
-                      // onChange={OnChange}
-                    />
-                  </label>
-                </li>
-              )}
-            </ul>
-          </Form>
-          <FooterNote>
-            <p>{dateLocal}</p>
-            <Icons.Done onClick={onSubmitHandler} size="20px" />
-          </FooterNote>
-        </Container>
-      </Modal>
-
-      {/* ) : null} */}
+                {updateNotes.todos1 && (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label style={{ flex: "1", marginRight: "42px" }}>
+                      <InputField
+                        type="text"
+                        name="todos1"
+                        placeholder="Enter todo items ..."
+                        ref={todos1Ref}
+                        defaultValue={updateNotes.todos1 || ""}
+                        // value={updateNotes.todos1 || ""}
+                        // onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                )}
+                {updateNotes.todos2 && (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label style={{ flex: "1", marginRight: "42px" }}>
+                      <InputField
+                        type="text"
+                        name="todos2"
+                        placeholder="Enter todo items ..."
+                        ref={todos2Ref}
+                        defaultValue={updateNotes.todos2 || ""}
+                        // value={updateNotes.todos2 || ""}
+                        // onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                )}
+              </ul>
+            </Form>
+            <FooterNote>
+              <p>{dateLocal}</p>
+              <Icons.Save onClick={onSubmitHandler} size="20px" />
+            </FooterNote>
+          </Container>
+        </Modal>
+      ) : null}
     </>
   );
 };

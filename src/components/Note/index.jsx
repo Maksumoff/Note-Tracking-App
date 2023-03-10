@@ -3,69 +3,30 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import { Icons } from "../AddNote/styled";
 import NoteList from "../NoteList";
 import { Container } from "./styled";
-// import { nanoid } from "nanoid";
 
 export const Note = () => {
-  const [notes, setNotes] = useLocalStorage("notes", [
-    // {
-    //   id: nanoid(),
-    //   title: "title",
-    //   todos: todos,
-    //   date: dateLocal,
-    //   completed: false,
-    // },
-    // {
-    //   id: nanoid(),
-    //   title: "Second notes",
-    //   todos: "Todo items",
-    //   date: dateLocal,
-    //   completed: true,
-    // },
-    // {
-    //   id: nanoid(),
-    //   title: "Third notes",
-    //   todos: "Todo items",
-    //   date: dateLocal,
-    //   completed: true,
-    // },
-    // {
-    //   id: nanoid(),
-    //   title: "Fourth notes",
-    //   todos: "Todo items",
-    //   date: dateLocal,
-    //   completed: true,
-    // },
-    // {
-    //   id: nanoid(),
-    //   title: "Fifth notes",
-    //   todos: "Todo items",
-    //   date: dateLocal,
-    //   completed: false,
-    // },
-  ]);
+  const [notes, setNotes] = useLocalStorage("notes", []);
   const [show, setShow] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState(null);
 
   const addNoteHandler = (note) => {
     setNotes((prev) => [...prev, note]);
-    console.log(note);
+    // console.log(note);
   };
 
   const deleteHandler = (id) => {
     setNotes((prev) => prev.filter((note) => note.id !== id));
-    console.log(id + "hey");
   };
 
   const updateNote = (updateNote) => {
-    // console.log(updateNote);
-
-    // console.log(updateNote.todos);
     setNotes((prev) =>
       prev.map((notes) =>
         notes.id === updateNote.id
           ? {
               ...notes,
+              // id: updateNote.id,
+              id: Date.now(),
               title: updateNote.title,
               todos: updateNote.todos,
               todos1: updateNote.todos1,
@@ -89,13 +50,6 @@ export const Note = () => {
   }) => {
     setEditedTask({ id, title, todos, todos1, todos2, date, completed });
     setIsEditing(true);
-    // console.log(
-    //   "title:" + title,
-    //   "todos:" + todos,
-    //   "todos1:" + todos1,
-    //   "todos2:" + todos2
-    // );
-    // console.log(todos);
   };
 
   return (
