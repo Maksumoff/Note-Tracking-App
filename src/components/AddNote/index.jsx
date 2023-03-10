@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
 import { InputField } from "../EditNote/styled";
 
 export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
-  const [addNotes, setAddNotes] = useState([]);
+  // const [addNotes, setAddNotes] = useState([]);
   const titleRef = useRef("");
   const todosRef = useRef("");
   const todos1Ref = useRef("");
@@ -53,7 +53,7 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
       todosRef?.current?.value?.trim().length > 0
     ) {
       addNoteHandler(NewTodo);
-      setAddNotes("");
+      // setAddNotes("");
       onClose();
     } else {
       alert(
