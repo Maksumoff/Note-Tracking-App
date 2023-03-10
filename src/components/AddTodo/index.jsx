@@ -34,8 +34,8 @@ export const AddTodo = ({ addTask, todos, enterEditMode }) => {
     task.length === 49 && alert("Please input up to 50 character");
     // console.log(task.length);
   };
-  console.log(todos.length);
-  console.log(tasksNoun);
+  // console.log(todos.length);
+  // console.log(tasksNoun);
 
   return (
     <FormWrapper>
