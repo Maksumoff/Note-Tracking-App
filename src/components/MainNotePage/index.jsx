@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { Icons } from "../AddNote/styled";
 import NoteList from "../NoteList";
-import { Container } from "./styled";
+import { Container, Wrapper } from "./styled";
 
-export const Note = () => {
+const MainPage = () => {
   const [notes, setNotes] = useLocalStorage("notes", []);
   const [show, setShow] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -54,8 +54,10 @@ export const Note = () => {
 
   return (
     <Container>
-      <h1>Note page </h1>
-      <Icons.AddBtn size="3.2em" onClick={() => setShow(true)} />
+      <Wrapper>
+        <h1 style={{ padding: "10px" }}>Note page </h1>
+        <Icons.AddBtn size="3.2em" onClick={() => setShow(true)} />
+      </Wrapper>
       <NoteList
         notes={notes}
         addNoteHandler={addNoteHandler}
@@ -73,4 +75,4 @@ export const Note = () => {
   );
 };
 
-export default Note;
+export default MainPage;

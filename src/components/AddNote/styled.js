@@ -77,6 +77,13 @@ Icons.AddBtn = styled(MdPlaylistAdd)`
   margin: auto;
   padding: 20px;
   cursor: pointer;
+  color: #0d263b;
+  color: #b8ff06;
+  /* background: #b8ff06; */
+  background: #0d263b;
+  border: 15px dashed #b8ff06;
+  /* border: 10px dotted #0d263b; */
+  border-radius: 50%;
 `;
 
 export { Modal, Container, FooterNote, Icons, Form, Input };

@@ -1,5 +1,5 @@
-import Note from "../../components/Note";
+import { TodoContainer } from "../../components/Main";
 
-export const NotePage = () => <Note />;
+export const NotePage = () => <TodoContainer />;
 
 export default NotePage;

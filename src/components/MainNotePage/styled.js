@@ -8,5 +8,12 @@ const Container = styled.div`
   align-items: stretch;
   margin: auto;
 `;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding: 10px;
+  align-items: center;
+`;
 
-export { Container };
+export { Container, Wrapper };
