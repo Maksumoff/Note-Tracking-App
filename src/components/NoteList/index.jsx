@@ -16,6 +16,11 @@ export const NoteList = ({
   onCloseEdit,
   updateNote,
   enterEditMode,
+  askDelete,
+  onAskDelete,
+  onAskCancel,
+  askDeleteMode,
+  deletedNote,
 }) => {
   const sortNotes = notes.sort((a, b) => b.id - a.id);
 
@@ -42,23 +47,31 @@ export const NoteList = ({
             onClose={onClose}
           />
         )}
-
-        {sortNotes.map(
-          ({ id, title, todos, todos1, todos2, date, completed }) => (
-            <Notes
-              key={id}
-              id={id}
-              title={title}
-              todos={todos}
-              todos1={todos1}
-              todos2={todos2}
-              date={date}
-              completed={completed}
-              deleteHandler={deleteHandler}
-              enterEditMode={enterEditMode}
-              onOpenEdit={onOpenEdit}
-            />
+        {notes.length ? (
+          sortNotes.map(
+            ({ id, title, todos, todos1, todos2, date, completed }) => (
+              <Notes
+                key={id}
+                id={id}
+                title={title}
+                todos={todos}
+                todos1={todos1}
+                todos2={todos2}
+                date={date}
+                completed={completed}
+                deleteHandler={deleteHandler}
+                enterEditMode={enterEditMode}
+                onOpenEdit={onOpenEdit}
+                askDelete={askDelete}
+                onAskDelete={onAskDelete}
+                onAskCancel={onAskCancel}
+                askDeleteMode={askDeleteMode}
+                deletedNote={deletedNote}
+              />
+            )
           )
+        ) : (
+          <p align="center">There is no pending notes</p>
         )}
       </ListWrapper>
     </Container>

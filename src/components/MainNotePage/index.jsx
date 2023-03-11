@@ -7,8 +7,10 @@ import { Container, Wrapper } from "./styled";
 const MainPage = () => {
   const [notes, setNotes] = useLocalStorage("notes", []);
   const [show, setShow] = useState(false);
+  const [askDelete, setAskDelete] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState(null);
+  const [deletedNote, setDeletedNote] = useState(null);
 
   const addNoteHandler = (note) => {
     setNotes((prev) => [...prev, note]);
@@ -17,6 +19,8 @@ const MainPage = () => {
 
   const deleteHandler = (id) => {
     setNotes((prev) => prev.filter((note) => note.id !== id));
+    setAskDelete(false);
+    // console.log(id);
   };
 
   const updateNote = (updateNote) => {
@@ -52,10 +56,15 @@ const MainPage = () => {
     setIsEditing(true);
   };
 
+  const askDeleteMode = ({ id, title }) => {
+    setDeletedNote({ id, title });
+    setAskDelete(true);
+  };
+
   return (
     <Container>
       <Wrapper>
-        <h1 style={{ padding: "10px" }}>Note page </h1>
+        <h1 style={{ color: "#0d263b", padding: "10px" }}>Main page </h1>
         <Icons.AddBtn size="3.2em" onClick={() => setShow(true)} />
       </Wrapper>
       <NoteList
@@ -70,6 +79,11 @@ const MainPage = () => {
         enterEditMode={enterEditMode}
         editedTask={editedTask}
         updateNote={updateNote}
+        askDelete={askDelete}
+        onAskDelete={() => setAskDelete(true)}
+        askDeleteMode={askDeleteMode}
+        onAskCancel={() => setAskDelete(false)}
+        deletedNote={deletedNote}
       />
     </Container>
   );

@@ -59,4 +59,64 @@ Icons.Edit = styled(MdOutlineEditNote)`
   background: #b8ff06;
 `;
 
-export { Container, FooterNote, Icons, IconsWrapper, Input };
+const Modal = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 38, 59, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  width: 345px;
+  min-height: 40px;
+  gap: 15px;
+`;
+
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  color: #cf142b;
+  background: transparent;
+  border: 5px solid #cf142b;
+  border-radius: 15px;
+  padding: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  :hover {
+    background: #cf142b;
+    color: #fff;
+    border: 5px solid #cf142b;
+  }
+  :active {
+    transform: scale(0.9);
+  }
+  :focus {
+    outline: none;
+    background: #cf142b;
+    color: #fff;
+    border: 5px solid #cf142b;
+  }
+`;
+
+export {
+  Container,
+  FooterNote,
+  Icons,
+  IconsWrapper,
+  Input,
+  Modal,
+  Wrapper,
+  Button,
+};

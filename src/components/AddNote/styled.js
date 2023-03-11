@@ -74,16 +74,18 @@ Icons.Done = styled(MdOutlineDownloadDone)`
 `;
 
 Icons.AddBtn = styled(MdPlaylistAdd)`
+  ${cmn};
   margin: auto;
-  padding: 20px;
-  cursor: pointer;
+  border-radius: 50px;
   color: #0d263b;
-  color: #b8ff06;
-  /* background: #b8ff06; */
-  background: #0d263b;
-  border: 15px dashed #b8ff06;
-  /* border: 10px dotted #0d263b; */
-  border-radius: 50%;
+  background: #fff;
+  border: ${({ small }) =>
+    small ? "1px dashed #0d263b" : "10px dashed #0d263b"};
+  /* :hover {
+    color: #b8ff06;
+    background: #0d263b;
+    border: 10px dashed #b8ff06;
+  } */
 `;
 
 export { Modal, Container, FooterNote, Icons, Form, Input };
