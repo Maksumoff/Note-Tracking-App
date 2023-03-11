@@ -5,7 +5,7 @@ import { AddTodo } from "../AddTodo";
 import { Todo } from "../TodoList";
 import { Text } from "./styled";
 
-export const TodoContainer = () => {
+const NotePage = () => {
   const [todos, setTodos] = useLocalStorage("todo", []);
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -118,3 +118,4 @@ export const TodoContainer = () => {
     </div>
   );
 };
+export default NotePage;
