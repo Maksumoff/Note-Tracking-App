@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { MdPlaylistAdd } from "react-icons/md";
 import { MdOutlineDownloadDone } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
+// import { MdPlaylistAddCircle } from "react-icons/md";
 
 const Modal = styled.div`
   position: fixed;
@@ -63,6 +64,19 @@ Icons.Close = styled(MdOutlineCancel)`
   :hover {
     color: #fff;
     background: #cf142b;
+  }
+`;
+Icons.AddTodo = styled(MdPlaylistAdd)`
+  ${cmn};
+
+  color: #0d263b;
+  background: #fff;
+  margin-left: 10px;
+  border: 3px solid #fff;
+  :hover {
+    color: #fff;
+    background: #0d263b;
+    border: 3px solid #fff;
   }
 `;
 

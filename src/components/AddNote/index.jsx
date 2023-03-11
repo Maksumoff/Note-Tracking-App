@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Modal, Container, FooterNote, Form, Icons, Input } from "./styled";
 import { InputField } from "../EditNote/styled";
 
@@ -8,6 +8,8 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
   const todosRef = useRef("");
   const todos1Ref = useRef("");
   const todos2Ref = useRef("");
+
+  const [addState, setaddState] = useState(0);
 
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
@@ -53,7 +55,7 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
       todosRef?.current?.value?.trim().length > 0
     ) {
       addNoteHandler(NewTodo);
-      // setAddNotes("");
+      setaddState("");
       onClose();
     } else {
       alert(
@@ -68,6 +70,10 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
       );
     }
   };
+
+  // console.log(addState);
+  // console.log(addState > 0);
+  // console.log(addState.length);
 
   return (
     <>
@@ -89,6 +95,7 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
               </label>
               <Icons.Close size="20px" onClick={onClose} />
             </Form>
+
             <Form onSubmit={onSubmitHandler}>
               <ul>
                 <li>
@@ -106,39 +113,48 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
                       required
                     />
                   </label>
+                  <Icons.AddTodo
+                    size="20px"
+                    onClick={() => setaddState((prev) => prev + 1)}
+                  />
                 </li>
-                <li>
-                  <label>
-                    <Input type="checkbox" checked={completed} disabled />
-                  </label>
-                  <label>
-                    <InputField
-                      type="text"
-                      name="todos1"
-                      placeholder="Enter todo items ..."
-                      ref={todos1Ref}
-                      // value={addNotes.todos1 || ""}
-                      // onChange={OnChange}
-                    />
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <Input type="checkbox" checked={completed} disabled />
-                  </label>
-                  <label>
-                    <InputField
-                      type="text"
-                      name="todos2"
-                      placeholder="Enter todo items ..."
-                      ref={todos2Ref}
-                      // value={addNotes.todos2 || ""}
-                      // onChange={OnChange}
-                    />
-                  </label>
-                </li>
+                {addState > 0 ? (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label>
+                      <InputField
+                        type="text"
+                        name="todos1"
+                        placeholder="Enter todo items ..."
+                        ref={todos1Ref}
+                        // value={addNotes.todos1 || ""}
+                        // onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                ) : null}
+                {addState > 1 ? (
+                  <li>
+                    <label>
+                      <Input type="checkbox" checked={completed} disabled />
+                    </label>
+                    <label>
+                      <InputField
+                        type="text"
+                        name="todos2"
+                        placeholder="Enter todo items ..."
+                        ref={todos2Ref}
+                        // value={addNotes.todos2 || ""}
+                        // onChange={OnChange}
+                      />
+                    </label>
+                  </li>
+                ) : null}
               </ul>
             </Form>
+
             <FooterNote>
               <small>{dateLocal}</small>
               <Icons.Done onClick={onSubmitHandler} size="20px" />
