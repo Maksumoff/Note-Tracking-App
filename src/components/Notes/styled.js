@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MdOutlineEditNote } from "react-icons/md";
+import { HiClipboardDocumentList } from "react-icons/hi2";
+import { MdOutlineCancel } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +44,25 @@ const cmn = css`
     transform: scale(0.8);
   }
 `;
+Icons.Details = styled(HiClipboardDocumentList)`
+  ${cmn};
+  padding: 4px;
+  border: 1px solid #fff;
+  :hover {
+    color: #0d263b;
+    background: #fff;
+  }
+`;
+Icons.Close = styled(MdOutlineCancel)`
+  ${cmn};
+  color: #cf142b;
+  background: #fff;
+  :hover {
+    color: #fff;
+    background: #cf142b;
+    margin-left: 15px;
+  }
+`;
 
 Icons.Trash = styled(HiOutlineTrash)`
   ${cmn};
@@ -72,13 +93,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
-  padding: 15px;
-  border: 3px solid #fff;
   border-radius: 12px;
   width: 345px;
   min-height: 40px;
   gap: 15px;
+  color: ${({ details }) => (details ? "#fff" : "#0d263b")};
+  background: ${({ details }) => (details ? "#0d263b" : "#fff")};
+  padding: 15px;
+  border: 3px solid #fff;
+`;
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const Button = styled.button`
@@ -119,4 +146,5 @@ export {
   Modal,
   Wrapper,
   Button,
+  TitleWrapper,
 };

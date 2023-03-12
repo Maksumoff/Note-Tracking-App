@@ -7,10 +7,12 @@ import { Container, Wrapper } from "./styled";
 const MainPage = () => {
   const [notes, setNotes] = useLocalStorage("notes", []);
   const [show, setShow] = useState(false);
-  const [askDelete, setAskDelete] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [askDelete, setAskDelete] = useState(false);
   const [editedTask, setEditedTask] = useState(null);
   const [deletedNote, setDeletedNote] = useState(null);
+  const [details, setDetails] = useState(null);
   const [addState, setAddState] = useState(0);
 
   const addNoteHandler = (note) => {
@@ -65,6 +67,11 @@ const MainPage = () => {
     setAskDelete(true);
   };
 
+  const showDetailsMode = ({ id, title, todos }) => {
+    setDetails({ id, title, todos });
+    setShowDetails(true);
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -86,6 +93,11 @@ const MainPage = () => {
         askDelete={askDelete}
         onAskDelete={() => setAskDelete(true)}
         askDeleteMode={askDeleteMode}
+        showDetailsMode={showDetailsMode}
+        showDetails={showDetails}
+        onShowDetails={() => setShowDetails(true)}
+        onHideDetails={() => setShowDetails(false)}
+        details={details}
         onAskCancel={() => setAskDelete(false)}
         deletedNote={deletedNote}
         addState={addState}

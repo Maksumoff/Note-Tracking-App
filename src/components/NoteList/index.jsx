@@ -23,6 +23,11 @@ export const NoteList = ({
   deletedNote,
   addState,
   setAddState,
+  showDetailsMode,
+  showDetails,
+  onShowDetails,
+  onHideDetails,
+  details,
 }) => {
   const sortNotes = notes.sort((a, b) => b.id - a.id);
 
@@ -71,6 +76,11 @@ export const NoteList = ({
                 onAskCancel={onAskCancel}
                 askDeleteMode={askDeleteMode}
                 deletedNote={deletedNote}
+                showDetailsMode={showDetailsMode}
+                showDetails={showDetails}
+                onShowDetails={onShowDetails}
+                onHideDetails={onHideDetails}
+                details={details}
               />
             )
           )

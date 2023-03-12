@@ -7,6 +7,7 @@ import {
   IconsWrapper,
   Input,
   Modal,
+  TitleWrapper,
   Wrapper,
 } from "./styled";
 
@@ -26,14 +27,20 @@ export const Notes = ({
   onAskCancel,
   askDeleteMode,
   deletedNote,
+  showDetailsMode,
+  showDetails,
+  onShowDetails,
+  onHideDetails,
+  details,
 }) => {
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
+        onHideDetails();
         onAskCancel();
       }
     },
-    [onAskCancel]
+    [onAskCancel, onHideDetails]
   );
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -52,6 +59,10 @@ export const Notes = ({
     onAskDelete();
   };
 
+  const detailsMode = (note) => {
+    showDetailsMode(note);
+    onShowDetails();
+  };
   return (
     <Container>
       <h1
@@ -86,7 +97,24 @@ export const Notes = ({
       </ul>
       <FooterNote>
         <small>{date}</small>
+
         <IconsWrapper>
+          <Icons.Details
+            size="20px"
+            onClick={() => detailsMode({ id, title, todos })}
+          />
+          {showDetails ? (
+            <Modal onClick={() => onHideDetails()}>
+              <Wrapper details onClick={(e) => e.stopPropagation()}>
+                <TitleWrapper>
+                  <h2>Details of: {details?.title} </h2>
+                  <Icons.Close size="20px" onClick={() => onHideDetails()} />
+                </TitleWrapper>
+
+                <p>First todo: {details?.todos} </p>
+              </Wrapper>
+            </Modal>
+          ) : null}
           <Icons.Edit
             size="20px"
             onClick={() =>
@@ -99,14 +127,13 @@ export const Notes = ({
           {askDelete ? (
             <Modal onClick={() => onAskCancel()}>
               <Wrapper onClick={(e) => e.stopPropagation()}>
-                <h1 style={{ color: "#0d263b" }}>
-                  Are you sure to delete:{" "}
+                <h1>
+                  Are you sure to delete:
                   <span style={{ color: "#cf142b" }}>
                     {" "}
                     "{deletedNote?.title}" ?
                   </span>{" "}
                 </h1>
-
                 <Button onClick={() => deleteHandler(deletedNote?.id)}>
                   Yes, delete please
                 </Button>
