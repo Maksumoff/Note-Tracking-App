@@ -68,15 +68,21 @@ Icons.Close = styled(MdOutlineCancel)`
 `;
 Icons.AddTodo = styled(MdPlaylistAdd)`
   ${cmn};
-
-  color: #0d263b;
-  background: #fff;
+  cursor: ${({ notallowed }) => notallowed && "not-allowed"};
+  :active {
+    transform: ${({ notallowed }) => notallowed && "scale(1)"};
+  }
+  color: ${({ notallowed }) => (notallowed ? "#cf142b" : "#0d263b")};
+  background: ${({ notallowed }) => (notallowed ? "#fff" : "#fff")};
   margin-left: 10px;
-  border: 3px solid #fff;
+  border: ${({ notallowed }) =>
+    notallowed ? "3px solid #fff" : "3px solid #fff"};
+
   :hover {
-    color: #fff;
-    background: #0d263b;
-    border: 3px solid #fff;
+    color: ${({ notallowed }) => (notallowed ? "#fff" : "#fff")};
+    background: ${({ notallowed }) => (notallowed ? "#cf142b" : "#0d263b")};
+    border: ${({ notallowed }) =>
+      notallowed ? "3px solid #cf142b" : "3px solid #fff"};
   }
 `;
 

@@ -15,10 +15,12 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
         onClose();
+        setaddState(0);
       }
     },
     [onClose]
   );
+
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return function cleanup() {
@@ -55,7 +57,7 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
       todosRef?.current?.value?.trim().length > 0
     ) {
       addNoteHandler(NewTodo);
-      setaddState("");
+      setaddState(0);
       onClose();
     } else {
       alert(
@@ -71,14 +73,15 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
     }
   };
 
-  // console.log(addState);
-  // console.log(addState > 0);
-  // console.log(addState.length);
-
   return (
     <>
       {show ? (
-        <Modal onClick={onClose}>
+        <Modal
+          onClick={() => {
+            onClose();
+            return setaddState(0);
+          }}
+        >
           <Container onClick={(e) => e.stopPropagation()}>
             <Form onSubmit={onSubmitHandler} close>
               <label>
@@ -93,7 +96,13 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
                   required
                 />
               </label>
-              <Icons.Close size="20px" onClick={onClose} />
+              <Icons.Close
+                size="20px"
+                onClick={() => {
+                  onClose();
+                  return setaddState(0);
+                }}
+              />
             </Form>
 
             <Form onSubmit={onSubmitHandler}>
@@ -113,10 +122,22 @@ export const AddNote = ({ addNoteHandler, completed, show, onClose }) => {
                       required
                     />
                   </label>
-                  <Icons.AddTodo
-                    size="20px"
-                    onClick={() => setaddState((prev) => prev + 1)}
-                  />
+
+                  {/* {addState < 2 ? (
+                    <Icons.AddTodo
+                      size="20px"
+                      onClick={() => setaddState((prev) => prev + 1)}
+                    />
+                  ) : null} */}
+
+                  {addState < 2 ? (
+                    <Icons.AddTodo
+                      size="20px"
+                      onClick={() => setaddState((prev) => prev + 1)}
+                    />
+                  ) : (
+                    <Icons.AddTodo size="20px" notallowed="true" />
+                  )}
                 </li>
                 {addState > 0 ? (
                   <li>
