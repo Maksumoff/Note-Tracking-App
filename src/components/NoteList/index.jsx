@@ -21,6 +21,8 @@ export const NoteList = ({
   onAskCancel,
   askDeleteMode,
   deletedNote,
+  addState,
+  setAddState,
 }) => {
   const sortNotes = notes.sort((a, b) => b.id - a.id);
 
@@ -38,6 +40,8 @@ export const NoteList = ({
             onCloseEdit={onCloseEdit}
             editedTask={editedTask}
             updateNote={updateNote}
+            addState={addState}
+            setAddState={setAddState}
           />
         ) : (
           <AddNote

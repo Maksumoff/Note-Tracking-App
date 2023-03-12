@@ -8,6 +8,7 @@ import {
   Input,
   InputField,
 } from "./styled";
+import { Icons as Icon } from "../AddNote/styled.js";
 
 export const EditNote = ({
   completed,
@@ -15,6 +16,8 @@ export const EditNote = ({
   onCloseEdit,
   editedTask,
   updateNote,
+  addState,
+  setAddState,
 }) => {
   const [updateNotes, setUpdateNotes] = useState(editedTask);
   const titleRef = useRef("");
@@ -25,11 +28,13 @@ export const EditNote = ({
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
+        setAddState(0);
         onCloseEdit();
       }
     },
-    [onCloseEdit]
+    [onCloseEdit, setAddState]
   );
+  // const [addState, setaddState] = useState(0);
 
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -64,6 +69,7 @@ export const EditNote = ({
         date: dateLocal + " edited*",
       });
       setUpdateNotes("");
+      setAddState(0);
       onCloseEdit();
     } else {
       alert(
@@ -82,7 +88,12 @@ export const EditNote = ({
   return (
     <>
       {isEditing ? (
-        <Modal onClick={onCloseEdit}>
+        <Modal
+          onClick={() => {
+            onCloseEdit();
+            return setAddState(0);
+          }}
+        >
           <Container onClick={(e) => e.stopPropagation()}>
             <Form onSubmit={onSubmitHandler} close>
               <label style={{ flex: "1", marginRight: "10px" }}>
@@ -98,7 +109,13 @@ export const EditNote = ({
                   required
                 />
               </label>
-              <Icons.Close size="20px" onClick={onCloseEdit} />
+              <Icons.Close
+                size="20px"
+                onClick={() => {
+                  onCloseEdit();
+                  return setAddState(0);
+                }}
+              />
             </Form>
             <Form onSubmit={onSubmitHandler}>
               <ul>
@@ -118,8 +135,31 @@ export const EditNote = ({
                       required
                     />
                   </label>
+
+                  {/* {addState < 2 ? (
+                    <Icons.AddTodo
+                      size="20px"
+                      onClick={() => setaddState((prev) => prev + 1)}
+                    />
+                  ) : null} */}
+
+                  {addState < 2 ? (
+                    <Icon.AddTodo
+                      size="20px"
+                      onClick={
+                        () =>
+                          updateNotes.todos1
+                            ? setAddState((prev) => prev + 2)
+                            : setAddState((prev) => prev + 1)
+                        // ? setaddState((prev) => prev + 2)
+                        // : setaddState((prev) => prev + 1)
+                      }
+                    />
+                  ) : (
+                    <Icon.AddTodo size="20px" notallowed="true" />
+                  )}
                 </li>
-                {updateNotes.todos1 && (
+                {updateNotes.todos1 ? (
                   <li>
                     <label>
                       <Input type="checkbox" checked={completed} disabled />
@@ -136,8 +176,27 @@ export const EditNote = ({
                       />
                     </label>
                   </li>
+                ) : (
+                  addState > 0 && (
+                    <li>
+                      <label>
+                        <Input type="checkbox" checked={completed} disabled />
+                      </label>
+                      <label style={{ flex: "1", marginRight: "42px" }}>
+                        <InputField
+                          type="text"
+                          name="todos1"
+                          placeholder="Enter todo items ..."
+                          ref={todos1Ref}
+                          // defaultValue={updateNotes.todos1 || ""}
+                          // value={updateNotes.todos1 || ""}
+                          // onChange={OnChange}
+                        />
+                      </label>
+                    </li>
+                  )
                 )}
-                {updateNotes.todos2 && (
+                {updateNotes.todos2 ? (
                   <li>
                     <label>
                       <Input type="checkbox" checked={completed} disabled />
@@ -154,6 +213,25 @@ export const EditNote = ({
                       />
                     </label>
                   </li>
+                ) : (
+                  addState > 1 && (
+                    <li>
+                      <label>
+                        <Input type="checkbox" checked={completed} disabled />
+                      </label>
+                      <label style={{ flex: "1", marginRight: "42px" }}>
+                        <InputField
+                          type="text"
+                          name="todos1"
+                          placeholder="Enter todo items ..."
+                          ref={todos2Ref}
+                          // defaultValue={updateNotes.todos1 || ""}
+                          // value={updateNotes.todos1 || ""}
+                          // onChange={OnChange}
+                        />
+                      </label>
+                    </li>
+                  )
                 )}
               </ul>
             </Form>

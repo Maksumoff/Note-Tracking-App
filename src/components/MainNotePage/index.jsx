@@ -11,6 +11,7 @@ const MainPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState(null);
   const [deletedNote, setDeletedNote] = useState(null);
+  const [addState, setAddState] = useState(0);
 
   const addNoteHandler = (note) => {
     setNotes((prev) => [...prev, note]);
@@ -54,6 +55,9 @@ const MainPage = () => {
   }) => {
     setEditedTask({ id, title, todos, todos1, todos2, date, completed });
     setIsEditing(true);
+    todos2 && setAddState((prev) => prev + 2);
+    // console.log(todos2);
+    // console.log(addState + "notes add state))");
   };
 
   const askDeleteMode = ({ id, title }) => {
@@ -84,6 +88,8 @@ const MainPage = () => {
         askDeleteMode={askDeleteMode}
         onAskCancel={() => setAskDelete(false)}
         deletedNote={deletedNote}
+        addState={addState}
+        setAddState={setAddState}
       />
     </Container>
   );
