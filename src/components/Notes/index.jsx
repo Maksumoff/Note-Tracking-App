@@ -103,6 +103,7 @@ export const Notes = ({
             size="20px"
             onClick={() => detailsMode({ id, title, todos })}
           />
+
           {showDetails ? (
             <Modal onClick={() => onHideDetails()}>
               <Wrapper details onClick={(e) => e.stopPropagation()}>
@@ -115,6 +116,7 @@ export const Notes = ({
               </Wrapper>
             </Modal>
           ) : null}
+
           <Icons.Edit
             size="20px"
             onClick={() =>

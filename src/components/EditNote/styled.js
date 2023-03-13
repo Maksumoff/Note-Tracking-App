@@ -32,20 +32,30 @@ const Form = styled.form`
 `;
 
 const InputField = styled.input`
-  width: 90%;
-  border: 3px solid #fff;
-  border-radius: 9px 14px 9px 14px;
-  background: transparent;
+  border-radius: 9px 14px;
   color: #fff;
+  background: transparent;
   font-size: 14px;
   font-weight: 700;
   padding: 7px;
-  margin: 4px 2px;
-  outline: #fff solid 2px;
-  border: none;
+  margin: 5px 3px;
+  border: 3px solid #fff;
+  outline: none;
+  ::placeholder {
+    /* opacity: 1; */
+  }
   :focus {
-    outline: #b8ff06 solid 2px;
-    /* border: 3px solid #b8ff06; */
+    outline: none;
+    color: #0d263b;
+    background: #fff;
+    opacity: 1;
+
+    ::placeholder {
+      color: #0d263b;
+      font-size: 15px;
+      font-weight: 600;
+      /* opacity: 1; */
+    }
   }
 `;
 

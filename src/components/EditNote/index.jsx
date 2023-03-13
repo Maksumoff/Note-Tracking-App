@@ -123,7 +123,7 @@ export const EditNote = ({
                   <label>
                     <Input type="checkbox" checked={completed} disabled />
                   </label>
-                  <label style={{ flex: "1", marginRight: "43px" }}>
+                  <label>
                     <InputField
                       type="text"
                       name="todos"
