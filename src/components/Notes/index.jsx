@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import {
   Button,
   Container,
@@ -49,6 +50,8 @@ export const Notes = ({
     };
   }, [closeOnEscapeKeyDown]);
 
+  // const navigate = useNavigate();
+
   const editMode = (note) => {
     enterEditMode(note);
     onOpenEdit();
@@ -63,6 +66,7 @@ export const Notes = ({
     showDetailsMode(note);
     onShowDetails();
   };
+
   return (
     <Container>
       <h1
@@ -101,9 +105,13 @@ export const Notes = ({
         <IconsWrapper>
           <Icons.Details
             size="20px"
-            onClick={() => detailsMode({ id, title, todos })}
-          />
+            onClick={() => {
+              // console.log(details?.title);
+              return detailsMode({ id, title, todos });
 
+              // return navigate("/note");
+            }}
+          />
           {showDetails ? (
             <Modal onClick={() => onHideDetails()}>
               <Wrapper details onClick={(e) => e.stopPropagation()}>
@@ -116,7 +124,6 @@ export const Notes = ({
               </Wrapper>
             </Modal>
           ) : null}
-
           <Icons.Edit
             size="20px"
             onClick={() =>
@@ -125,7 +132,6 @@ export const Notes = ({
           />
           {/* <Icons.Trash size="20px" onClick={() => deleteHandler(id)} /> */}
           <Icons.Trash size="20px" onClick={() => deleteMode({ id, title })} />
-
           {askDelete ? (
             <Modal onClick={() => onAskCancel()}>
               <Wrapper onClick={(e) => e.stopPropagation()}>

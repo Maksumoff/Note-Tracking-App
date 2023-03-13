@@ -5,18 +5,20 @@
 // import { Todo } from "../TodoList";
 // import { Text } from "./styled";
 // import NoteList from "../NoteList";
-import MainPage from "../MainNotePage";
 
-const NotePage = () => {
+const NotePage = ({ details }) => {
+  // console.log(details);
+  // console.log(details?.title);
+
   return (
     <div>
       <header></header>
-      <>
-        <MainPage />
-      </>
+      {/* {details?.title} 
+      {details?.todos} */}
     </div>
   );
 };
+
 export default NotePage;
 
 // const NotePage = () => {
