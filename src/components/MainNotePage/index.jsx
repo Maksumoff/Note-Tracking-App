@@ -3,7 +3,6 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import { Icons } from "../AddNote/styled";
 import NoteList from "../NoteList";
 import { Container, Wrapper } from "./styled";
-import NotePage from "../NotePage";
 
 const MainPage = () =>
   // showDetailsMode,
@@ -74,18 +73,18 @@ const MainPage = () =>
       setAskDelete(true);
     };
 
-    const showDetailsMode = ({ id, title, todos }) => {
-      setDetails({ id, title, todos });
+    const showDetailsMode = ({ id, title, todos, todos1, todos2 }) => {
+      setDetails({ id, title, todos, todos1, todos2 });
       setShowDetails(true);
       // console.log(id, title, todos);
     };
+
     return (
       <Container>
         <Wrapper>
           <h1 style={{ color: "#0d263b", padding: "10px" }}>Main page </h1>
           <Icons.AddBtn size="3.2em" onClick={() => setShow(true)} />
         </Wrapper>
-        <NotePage details={details} />
         <NoteList
           notes={notes}
           addNoteHandler={addNoteHandler}

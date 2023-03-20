@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import NotePage from "../NotePage";
 import {
   Button,
   Container,
@@ -11,7 +12,6 @@ import {
   TitleWrapper,
   Wrapper,
 } from "./styled";
-
 export const Notes = ({
   id,
   title,
@@ -50,7 +50,7 @@ export const Notes = ({
     };
   }, [closeOnEscapeKeyDown]);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const editMode = (note) => {
     enterEditMode(note);
@@ -67,8 +67,12 @@ export const Notes = ({
     onShowDetails();
   };
 
+  // console.log(details?.title);
+
   return (
     <Container>
+      {/* <NotePage details={details} /> */}
+
       <h1
         className="inline
       "
@@ -107,7 +111,8 @@ export const Notes = ({
             size="20px"
             onClick={() => {
               // console.log(details?.title);
-              return detailsMode({ id, title, todos });
+              // navigate("/note");
+              return detailsMode({ id, title, todos, todos1, todos2 });
 
               // return navigate("/note");
             }}
@@ -119,8 +124,14 @@ export const Notes = ({
                   <h2>Details of: {details?.title} </h2>
                   <Icons.Close size="20px" onClick={() => onHideDetails()} />
                 </TitleWrapper>
+                {/* 
+                {details?.todos && <h3>First todo is: {details?.todos} </h3>}
+                {details?.todos1 && <h4>Second todo is: {details?.todos1} </h4>}
+                {details?.todos2 && <h5>Third todo is: {details?.todos2} </h5>} */}
 
-                <p>First todo: {details?.todos} </p>
+                {details?.todos && <p>First todo is: {details?.todos} </p>}
+                {details?.todos1 && <p>Second todo is: {details?.todos1} </p>}
+                {details?.todos2 && <p>Third todo is: {details?.todos2} </p>}
               </Wrapper>
             </Modal>
           ) : null}

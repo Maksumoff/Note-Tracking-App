@@ -13,8 +13,7 @@ const NotePage = ({ details }) => {
   return (
     <div>
       <header></header>
-      {/* {details?.title} 
-      {details?.todos} */}
+      {details?.title} {details?.todos}
     </div>
   );
 };
