@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import NotePage from "../NotePage";
+// import { useNavigate } from "react-router-dom";
+// import NotePage from "../NotePage";
 import {
   Button,
   Container,
@@ -50,7 +50,7 @@ export const Notes = ({
     };
   }, [closeOnEscapeKeyDown]);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const editMode = (note) => {
     enterEditMode(note);
