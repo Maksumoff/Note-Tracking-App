@@ -83,7 +83,7 @@ Icons.Edit = styled(MdOutlineEditNote)`
 const Modal = styled.div`
   position: fixed;
   inset: 0;
-  background: rgba(13, 38, 59, 0.9);
+  background: rgba(13, 38, 59, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
